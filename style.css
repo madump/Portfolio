@@ -1456,3 +1456,11 @@ section {
 .footer-brand,.footer-brand .nav-logo{display:flex;flex-direction:column;align-items:center;justify-content:center}
 .footer-brand img{display:block;margin:0 auto;height:70px}
 .nav-logo img{display:block;height:58px;width:auto}
+
+.about-visual{display:flex;flex-direction:column;align-items:center;position:relative}
+.about-caption{max-width:360px;margin:24px auto 0;text-align:center}
+.about-caption h3{font-size:2rem;margin:0 0 8px}
+.about-caption p{margin:0;color:#C9A227;font-weight:600;line-height:1.6}
+.footer-brand{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.footer-brand .nav-logo{display:flex;justify-content:center;width:100%}
+.footer-brand img{height:70px!important;margin:0 auto 16px!important}
