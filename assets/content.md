@@ -1,5 +1,5 @@
 # SITE_META
-title: Reyper John Florida — GoHighLevel Expert & Digital Systems Architect
+title: Marjory Say-ao — GoHighLevel Expert & Digital Systems Architect
 description: I build client acquisition systems — websites, funnels, automation, and AI workflows — that turn traffic into revenue.
 
 # NAV
@@ -12,10 +12,10 @@ description: I build client acquisition systems — websites, funnels, automatio
 - Contact
 
 # HERO
-eyebrow: GoHighLevel Expert · Funnel Builder · AI Systems Architect
-headline: I Build Systems That Turn Visitors Into Paying Clients
-subheadline: Websites, funnels, automation, and AI workflows — engineered for one thing: growth. If your digital presence isn't converting, you're leaving money on the table.
-cta_primary: Book a Strategy Call
+eyebrow: GoHighLevel Expert • Funnel Builder • Website & Automation Specialist
+headline: Helping Businesses Grow with Funnels, Automation & Smart Digital Solutions
+subheadline: I build websites, sales funnels, CRM systems, and automations using GoHighLevel to help businesses streamline their operations, generate more leads, and improve customer engagement.
+cta_primary: Let's Work Together
 cta_secondary: View My Work
 badge: 50+ Client Systems Deployed
 
@@ -30,9 +30,9 @@ badge: 50+ Client Systems Deployed
 # ABOUT
 eyebrow: About Me
 headline: Strategic. Technical. Obsessively Outcome-Focused.
-body_1: I'm Reyper John Florida — a Computer Science graduate turned digital systems architect. I don't just build websites. I engineer complete client acquisition ecosystems that attract the right leads, nurture them automatically, and convert them into booked calls and paying clients.
-body_2: My background in Computer Science gives me the technical edge to build things most "marketing consultants" can't touch — custom automations, AI-powered follow-up sequences, deeply integrated GoHighLevel systems, and funnels that actually perform under pressure.
-body_3: I work with service businesses, agencies, coaches, and consultants who are serious about growth. If you want pretty design without results, I'm not your guy. If you want a system that runs while you sleep — let's talk.
+body_1: I'm Marjory Say-ao, a Bachelor of Science in Information Technology graduate and a GoHighLevel Expert who is passionate about helping businesses grow through digital solutions. I specialize in building websites, sales funnels, CRM systems, workflow automations, and social media planning that streamline business processes and improve customer engagement.
+body_2: With a background in Information Technology and expertise in GoHighLevel, I create digital solutions that combine functionality with user experience. From websites and sales funnels to CRM setup, workflow automation, social media planning, and graphic design, I focus on building systems that support business growth and simplify everyday operations.
+body_3: I work with businesses, agencies, entrepreneurs, coaches, and consultants to create digital solutions that support their growth. Whether it's building websites, sales funnels, CRM systems, workflow automations, or graphic designs, my goal is to deliver solutions that are functional, user-friendly, and tailored to each client's needs.
 stats_1_value: 50+
 stats_1_label: Systems Built
 stats_2_value: 3x
@@ -41,166 +41,165 @@ stats_3_value: 98%
 stats_3_label: Client Retention
 
 # SERVICES
-eyebrow: What I Build
-headline: End-to-End Systems for Client Acquisition
-subheadline: Every service I offer is designed to work together — creating a seamless pipeline from first impression to closed deal.
+eyebrow: My Services
+headline: Digital Solutions for Growing Businesses
+subheadline: I provide professional digital services designed to help businesses establish their online presence, automate their processes, and connect with more customers.
 
 ## SERVICE_1
 icon: ◈
-title: Conversion-Focused Websites
-description: Not just beautiful — built to convert. I design and develop websites that communicate authority, build trust instantly, and guide visitors toward taking action. Every element is intentional, every page is optimized.
+title: Website Development
+description: I design and develop modern, responsive websites that help businesses establish a strong online presence. Every website is built with user experience, performance, and functionality in mind to effectively showcase your brand and engage your audience.
 features:
-- Custom design tailored to your brand and audience
-- Mobile-first, lightning-fast performance
-- Integrated lead capture and CRM connection
-- Built on platforms that are easy to manage
+- Custom website design tailored to your business
+- Mobile-friendly and responsive layout
+- Fast-loading and user-friendly pages
+- Integrated contact forms and CRM connectivity
 
 ## SERVICE_2
 icon: ◉
 title: Funnel Design & Build
-description: Multi-step sales funnels engineered to maximize conversions at every stage. From awareness to booked call — I map the buyer journey and build the infrastructure to move prospects through it efficiently.
+description: I create strategic sales funnels that guide potential customers through every stage of their journey—from initial interest to conversion. Each funnel is designed to provide a seamless experience and support your business goals.
 features:
-- Opt-in funnels, VSL funnels, webinar funnels, application funnels
-- A/B tested copy and design frameworks
-- GoHighLevel or custom platform builds
-- Full integration with your calendar and CRM
+- Lead generation, sales, webinar, and application funnels
+- User-friendly and conversion-focused layouts
+- Built with GoHighLevel or your preferred platform
+- Integrated with your CRM, calendar, and automation workflows
 
 ## SERVICE_3
 icon: ◎
 title: GoHighLevel Setup & Optimization
-description: GoHighLevel is the most powerful all-in-one platform for service businesses — when set up correctly. I architect and configure GHL systems from the ground up, or audit and optimize existing accounts for maximum performance.
-features:
-- Full CRM pipeline build-out
-- Automated follow-up sequences (SMS, email, voicemail)
-- Sub-account setup for agencies
-- Reputation management, booking systems, and reporting
+description: I provide GoHighLevel setup and optimization services to help businesses streamline their operations and manage customer relationships more effectively. Whether you're starting from scratch or improving an existing account, I configure your system to match your business needs.
+- CRM pipeline setup and customization
+- Email, SMS, and workflow automation
+- Agency and sub-account configuration
+- Calendar, forms, booking systems, and reporting
 
 ## SERVICE_4
 icon: ⬡
 title: Automation Systems
-description: Manual follow-up is killing your speed-to-lead. I build automation systems that respond to leads instantly, nurture them intelligently, and hand them off to your sales team at exactly the right moment.
+description: I build workflow automation systems that help businesses save time, improve efficiency, and streamline everyday tasks. From lead management to customer follow-ups, I create automated processes that keep your business running smoothly.
 features:
-- Lead response automations (under 5-minute contact)
-- Multi-channel nurture sequences
-- Workflow logic, tagging, and segmentation
-- Integration with 500+ tools via API and Zapier
+- Lead capture and follow-up automation
+- Email and SMS workflow automation
+- Workflow logic, tagging, and customer segmentation
+- Integration with third-party applications using Zapier and APIs
 
 ## SERVICE_5
 icon: ◈
-title: AI Agent Workflows
-description: The future of business is automated intelligence. I build custom AI agents and workflows that handle intake, qualification, appointment booking, and customer support — at scale, without a human in the loop.
+title: Social Media Planning
+description: I help businesses stay active and organized on social media by creating, scheduling, and managing content using GoHighLevel's Social Planner. This ensures a consistent online presence and better audience engagement.
 features:
-- AI chatbots trained on your business
-- Conversational appointment booking
-- Lead qualification and scoring via AI
-- Integration into GHL, websites, and messaging platforms
+- Content planning and scheduling
+- Social Planner setup in GoHighLevel
+- Multi-platform post management
+- Organized content calendar
 
 # CASE_STUDIES
-eyebrow: Selected Work
-headline: Real Systems. Real Results.
-subheadline: Every project starts with a business problem. Here's how we solved them.
+eyebrow: Featured Projects
+headline: Projects I've Worked On
+subheadline: A selection of projects showcasing my experience in GoHighLevel, websites, funnels, and automation.
 
 ## CASE_1
 tag: Agency · GoHighLevel
-title: 3x Lead Volume for a Marketing Agency in 90 Days
-challenge: A boutique marketing agency was relying entirely on referrals and manually following up with leads days after they came in. Their GoHighLevel account was barely configured and their website had zero conversion architecture.
-solution: I rebuilt their entire GHL system from scratch — pipelines, automations, and a 14-touch follow-up sequence. Built a new conversion-focused website and an application funnel for their high-ticket service. Integrated AI-powered lead qualification that pre-screened prospects before any human touched them.
-result_1: 312% increase in qualified leads within 90 days
-result_2: Average response time reduced from 2 days to under 4 minutes
-result_3: $85,000 in new revenue attributed to the new system in Q1
+title: GoHighLevel CRM Setup & Workflow Automation
+challenge: An agency needed a more organized system to manage leads, automate follow-ups, and streamline client communication.
+solution: I configured their GoHighLevel account by setting up CRM pipelines, workflows, calendars, forms, and automations to improve lead management and daily operations.
+result_1: Organized CRM pipeline for better lead tracking
+result_2: Automated follow-up workflows for improved efficiency
+result_3: Simplified client management and appointment scheduling
 
 ## CASE_2
-tag: Coach · Funnel Build
-title: $120K Launch for a Business Coach Using a 3-Page Funnel
-challenge: A business coach with a strong audience but zero funnel infrastructure was leaving money on the table every time she launched. She was sending traffic to a basic website with no clear path to purchase.
-solution: Designed and built a 3-page VSL funnel with a high-converting opt-in, video sales letter page, and application page. Integrated a full GoHighLevel automation sequence for nurture and follow-up, plus a Zoom booking integration for strategy calls.
-result_1: $120,000 generated in a single 10-day launch window
-result_2: 34% opt-in rate (industry average: 18-22%)
-result_3: 61% of booked calls converted to clients
+tag: Funnel · Website
+title: Website & Sales Funnel Development
+challenge: A client needed a professional online presence with a clear customer journey to generate inquiries and bookings.
+solution: I designed and developed a responsive website and sales funnel, integrating GoHighLevel forms, calendars, and CRM to create a seamless lead generation process.
+result_1: Professional and mobile-friendly website
+result_2: Streamlined lead capture and booking process
+result_3: Integrated CRM and automation for efficient follow-up
 
 # PROCESS
 eyebrow: How It Works
-headline: A Clear Path from Discovery to Results
-subheadline: No confusion. No wasted time. Just a proven process for building systems that work.
+headline: A Simple Process from Idea to Launch
+subheadline: I follow a clear and collaborative process to ensure every project is delivered efficiently and meets your business needs.
 
 ## STEP_1
 number: 01
-title: Strategy Call
-description: We start with a deep-dive into your business — your goals, your current setup, your gaps, and your growth targets. This isn't a sales call. It's a working session.
+title: Discovery & Consultation
+description: We begin by discussing your business, goals, and project requirements to understand the best solution for your needs.
 
 ## STEP_2
 number: 02
-title: System Architecture
-description: I map out the full client acquisition system — every page, every automation, every integration. You get a clear blueprint before a single line of code is written.
+title: Planning & Strategy
+description: I create a structured plan outlining the website, funnel, CRM setup, automation, or design based on your project objectives before development begins.
 
 ## STEP_3
 number: 03
-title: Build & Configure
-description: I build everything — website, funnels, GHL configuration, automations, AI workflows. You get weekly progress updates and full transparency throughout.
+title: Design & Development
+description: I build and configure your project, whether it's a website, sales funnel, GoHighLevel CRM, automation workflow, or graphic design, while keeping you updated throughout the process.
 
 ## STEP_4
 number: 04
-title: Launch & Optimize
-description: We launch with intention — not hope. I monitor performance, test critical points, and optimize based on real data. The goal is a system that keeps improving.
+title: Review & Launch
+description: After testing and final revisions, your project is launched and ready to support your business. I also provide guidance to help you get started with your new system.
 
 # DIFFERENTIATORS
 eyebrow: Why Work With Me
-headline: Not Just Delivery. Partnership.
+headline: Committed to Quality. Focused on Your Success.
 
 ## DIFF_1
 icon: ⚡
-title: Speed-to-Lead Obsessed
-description: Every hour a lead waits is revenue lost. I build systems where the first touchpoint happens in minutes, not days.
+title: Client-Focused Solutions
+description: Every project is tailored to your business goals, ensuring the final result meets your needs and delivers a great user experience.
 
 ## DIFF_2
 icon: ◈
-title: Full-Stack Thinking
-description: I understand design, development, automation, and AI — which means I see the whole picture, not just my corner of it.
+title: Technical & Creative Expertise
+description: With a background in Information Technology and experience in GoHighLevel, website development, automation, and graphic design, I create solutions that are both functional and visually engaging.
 
 ## DIFF_3
 icon: ◎
-title: Outcome-First Approach
-description: I don't charge for deliverables. I charge for outcomes. Every decision I make is tied back to what moves the needle for your business.
+title: Reliable Communication
+description: I believe successful projects are built on clear communication, timely updates, and close collaboration from start to finish.
 
 ## DIFF_4
 icon: ⬡
-title: GoHighLevel Depth
-description: I've spent thousands of hours inside GHL. I know the platform deeply — its power, its quirks, and exactly how to architect it for your specific use case.
+title: GoHighLevel Specialist
+description: I specialize in GoHighLevel, helping businesses set up CRM systems, sales funnels, workflow automation, websites, and Social Planner to streamline their daily operations.
 
 # TESTIMONIALS
-eyebrow: Client Results
-headline: What Clients Are Saying
+eyebrow: Why Clients Choose Me
+headline: Dedicated to Delivering Quality Solutions
 
 ## TESTIMONIAL_1
-quote: John didn't just build us a funnel — he rebuilt our entire client acquisition process. Within 60 days, our lead volume tripled and our sales team was spending time on actual sales instead of chasing cold leads. The ROI has been insane.
-name: Marcus T.
-title: Founder, Elevate Digital Agency
-result: 3x lead volume in 60 days
+quote: I strive to create websites, sales funnels, and GoHighLevel systems that are tailored to each client's unique business goals, with a focus on quality, functionality, and user experience.
+name: Website Development
+title: Custom Solutions
+result: Responsive & Professional Designs
 
 ## TESTIMONIAL_2
-quote: I'd worked with developers before, but John thinks like a business owner. He asked questions no one else asked — about my sales process, my close rate, my bottlenecks. The system he built addressed all of it. My last launch did $120K. I don't launch without him anymore.
-name: Sarah K.
-title: Business Coach & Strategist
-result: $120K single launch
+quote: Every project is built with clear communication, attention to detail, and a commitment to delivering reliable solutions that help businesses improve their digital presence.
+name: GoHighLevel Services
+title: CRM & Automation
+result: Streamlined Business Processes
 
 ## TESTIMONIAL_3
-quote: The AI qualification system alone was worth the investment. We went from spending 3 hours a day on discovery calls with bad fits to only talking to pre-qualified, ready-to-buy prospects. John's work changed our business.
-name: David R.
-title: CEO, Premier Consulting Group
-result: Eliminated 80% of unqualified calls
+quote: Whether working directly with businesses or collaborating with agencies, I focus on providing dependable support and creating solutions that add value to every project.
+name: Professional Collaboration
+title: Business & Agency Support
+result: Reliable & Client-Focused Service
 
 # CTA
-eyebrow: Ready to Build?
-headline: Let's Build a System That Works While You Sleep
-subheadline: If you're serious about growing your business with systems, funnels, automation, and AI — let's start with a strategy call. No pressure. Just a clear picture of what's possible.
-cta_primary: Book Your Free Strategy Call
-cta_note: Limited spots available each month. No fluff, no pitch — just strategy.
+eyebrow: Let's Work Together
+headline: Ready to Bring Your Project to Life?
+subheadline: Whether you need a website, sales funnel, GoHighLevel setup, workflow automation, social media planning, or graphic design, I'm here to help turn your ideas into effective digital solutions.
+cta_primary: Get in Touch
+cta_note: Let's discuss your project and find the right solution for your business.
 
 # CONTACT
 eyebrow: Get In Touch
 headline: Start the Conversation
 subheadline: Fill out the form below or reach out directly. I respond to serious inquiries within 24 hours.
-email: johnflorida.dev@gmail.com
+email: marjbsayao@gmail.com
 location: Available Worldwide · Remote-First
 cta_label: Send Message
 field_name: Your Name
@@ -213,12 +212,12 @@ service_options:
 - Funnel Build
 - Website Development
 - Automation System
-- AI Agent Workflow
+- Social Media Management
 - Full System Build
 
 # FOOTER
 tagline: Building client acquisition systems that convert.
-copyright: © 2025 Reyper John Florida. All rights reserved.
+copyright: © 2026 Marjory Say-ao. All rights reserved.
 links:
 - Book a Call
 - Services
