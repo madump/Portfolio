@@ -33,6 +33,12 @@ headline: Strategic. Technical. Obsessively Outcome-Focused.
 body_1: I'm Marjory Say-ao, a Bachelor of Science in Information Technology graduate and a GoHighLevel Expert who is passionate about helping businesses grow through digital solutions. I specialize in building websites, sales funnels, CRM systems, workflow automations, and social media planning that streamline business processes and improve customer engagement.
 body_2: With a background in Information Technology and expertise in GoHighLevel, I create digital solutions that combine functionality with user experience. From websites and sales funnels to CRM setup, workflow automation, social media planning, and graphic design, I focus on building systems that support business growth and simplify everyday operations.
 body_3: I work with businesses, agencies, entrepreneurs, coaches, and consultants to create digital solutions that support their growth. Whether it's building websites, sales funnels, CRM systems, workflow automations, or graphic designs, my goal is to deliver solutions that are functional, user-friendly, and tailored to each client's needs.
+stats_1_value: 50+
+stats_1_label: Systems Built
+stats_2_value: 3x
+stats_2_label: Avg. Lead Increase
+stats_3_value: 98%
+stats_3_label: Client Retention
 
 # SERVICES
 eyebrow: My Services
