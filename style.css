@@ -1465,10 +1465,10 @@ section {
 .footer-brand .nav-logo{display:flex;justify-content:center;width:100%}
 .footer-brand img{height:70px!important;margin:0 auto 16px!important}
 
-/* Fix about overlay caption */
-.about-visual{position:relative;display:flex;justify-content:center;align-items:center;max-width:420px}
-.about-caption{position:absolute;left:50%;bottom:40px;transform:translateX(-50%);z-index:3;width:85%;text-align:center;color:#fff;background:rgba(0,0,0,.35);padding:16px;border-radius:12px;backdrop-filter:blur(3px)}
-.about-caption h3,.about-caption p{color:#fff;margin:0}
-.about-caption h3{margin-bottom:6px}
-.footer-brand,.footer-brand .nav-logo{width:100%;display:flex;justify-content:center;align-items:center}
-.footer-brand img{display:block;margin:0 auto!important}
+
+/* === ChatGPT Fixes === */
+.about-visual{position:relative!important;max-width:420px!important;margin:0 auto!important;display:block!important}
+.about-caption{position:absolute!important;left:0!important;right:0!important;bottom:0!important;top:auto!important;margin:0!important;padding:28px!important;text-align:center!important;background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,.2),transparent)!important;border-radius:0 0 24px 24px!important}
+.about-caption h3,.about-caption p{color:#fff!important}
+.footer-brand,.footer-brand .nav-logo{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;width:100%!important;text-align:center!important}
+.footer-brand .nav-logo img{display:block!important;margin:0 auto 16px!important;height:70px!important;width:auto!important}
