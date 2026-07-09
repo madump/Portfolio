@@ -2,23 +2,23 @@
    CSS VARIABLES & RESET
    ============================================================ */
 :root {
-    --c-bg: #0a0a0f;
-    --c-bg-2: #0f0f18;
-    --c-bg-3: #13131f;
-    --c-surface: #16161f;
-    --c-surface-2: #1d1d2a;
-    --c-border: rgba(255, 255, 255, 0.07);
-    --c-border-2: rgba(255, 255, 255, 0.12);
+    --c-bg: #ffffff;
+    --c-bg-2: #faf8f3;
+    --c-bg-3: #f2efe8;
+    --c-surface: #ffffff;
+    --c-surface-2: #f8f6f1;
+    --c-border: rgba(0,0,0,.08);
+    --c-border-2: rgba(0,0,0,.16);
 
-    --c-accent: #c8a96e;
-    --c-accent-light: #dfc08a;
-    --c-accent-dim: rgba(200, 169, 110, 0.12);
-    --c-accent-glow: rgba(200, 169, 110, 0.25);
+    --c-accent: #C9A227;
+    --c-accent-light: #E5C75A;
+    --c-accent-dim: rgba(201,162,39,.12);
+    --c-accent-glow: rgba(201,162,39,.25);
 
-    --c-white: #f5f4f0;
-    --c-text: #c8c7c0;
-    --c-text-dim: #6e6d68;
-    --c-text-muted: #3d3d42;
+    --c-white: #111111;
+    --c-text: #333333;
+    --c-text-dim: #666666;
+    --c-text-muted: #888888;
 
     --font-display: "DM Serif Display", Georgia, serif;
     --font-ui: "Syne", sans-serif;
@@ -84,7 +84,7 @@ h1,
 h2,
 h3 {
     font-family: var(--font-display);
-    color: var(--c-white);
+    color:#222;
     line-height: 1.1;
     letter-spacing: -0.02em;
 }
@@ -161,7 +161,7 @@ section {
 
 .btn-primary {
     background: var(--c-accent);
-    color: #0a0a0f;
+    color:#fff;
 }
 
 .btn-primary:hover {
@@ -172,7 +172,7 @@ section {
 
 .btn-ghost {
     background: transparent;
-    color: var(--c-white);
+    color:#222;
     border: 1px solid var(--c-border-2);
 }
 
@@ -207,7 +207,7 @@ section {
 }
 
 #navbar.scrolled {
-    background: rgba(10, 10, 15, 0.92);
+    background: rgba(255,255,255,.96);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--c-border);
 }
@@ -226,7 +226,7 @@ section {
     font-family: var(--font-ui);
     font-weight: 800;
     font-size: 1.4rem;
-    color: var(--c-white);
+    color:#222;
     letter-spacing: -0.02em;
 }
 
@@ -251,7 +251,7 @@ section {
 }
 
 .nav-links a:hover {
-    color: var(--c-white);
+    color:#222;
 }
 .nav-links a.active {
     color: var(--c-accent);
@@ -302,8 +302,8 @@ section {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(200, 169, 110, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(200, 169, 110, 0.04) 1px, transparent 1px);
+        linear-gradient(rgba(201,162,39,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,162,39,.06) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(
         ellipse 80% 80% at 50% 0%,
@@ -321,7 +321,7 @@ section {
     height: 600px;
     background: radial-gradient(
         ellipse,
-        rgba(200, 169, 110, 0.08) 0%,
+        rgba(201,162,39,.08) 0%,
         transparent 70%
     );
     pointer-events: none;
@@ -545,7 +545,7 @@ section {
 .stat-value {
     font-family: var(--font-display);
     font-size: 2.6rem;
-    color: var(--c-white);
+    color:#222;
     line-height: 1;
     margin-bottom: 6px;
 }
@@ -638,7 +638,7 @@ section {
 .service-card:hover {
     border-color: var(--c-border-2);
     transform: translateY(-4px);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
 
 .service-card:hover::after {
@@ -716,7 +716,7 @@ section {
 .case-card:hover {
     border-color: rgba(200, 169, 110, 0.3);
     transform: translateY(-4px);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    box-shadow:0 12px 40px rgba(0,0,0,.08);
 }
 
 .case-card-top {
@@ -814,7 +814,7 @@ section {
     height: 800px;
     background: radial-gradient(
         circle,
-        rgba(200, 169, 110, 0.04) 0%,
+        rgba(201,162,39,.06) 0%,
         transparent 65%
     );
     pointer-events: none;
@@ -963,7 +963,7 @@ section {
 .testimonial-card:hover {
     border-color: rgba(200, 169, 110, 0.2);
     transform: translateY(-4px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 .testimonial-quote {
@@ -984,7 +984,7 @@ section {
     font-family: var(--font-ui);
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--c-white);
+    color:#222;
 }
 
 .testimonial-title {
@@ -1156,11 +1156,11 @@ section {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    background: var(--c-bg-3);
+    background:#fff;
     border: 1px solid var(--c-border);
     border-radius: var(--radius);
     padding: 14px 16px;
-    color: var(--c-white);
+    color:#222;
     font-family: var(--font-body);
     font-size: 0.95rem;
     transition:
@@ -1180,8 +1180,8 @@ section {
 }
 
 .form-group select option {
-    background: var(--c-bg-3);
-    color: var(--c-white);
+    background:#fff;
+    color:#222;
 }
 
 .form-group input::placeholder,
