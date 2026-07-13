@@ -570,3 +570,39 @@
     init();
   }
 })();
+
+
+
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+const modal = document.getElementById("galleryModal");
+const modalImg = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDescription");
+const closeBtn = document.querySelector(".close");
+
+galleryItems.forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        modal.classList.add("active");
+
+        modalImg.src = item.dataset.image;
+        modalTitle.textContent = item.dataset.title;
+        modalDesc.textContent = item.dataset.description;
+
+    });
+
+});
+
+closeBtn.addEventListener("click", () => {
+    modal.classList.remove("active");
+});
+
+modal.addEventListener("click", e => {
+
+    if(e.target === modal){
+        modal.classList.remove("active");
+    }
+
+});

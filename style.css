@@ -1478,3 +1478,112 @@ section {
 .about-caption{position:absolute!important;bottom:0!important;left:0;right:0;display:flex;justify-content:center;align-items:center;min-height:110px;background:rgba(0,0,0,.45)!important;text-align:center;padding:20px!important}
 .footer-brand>a.nav-logo{display:flex!important;justify-content:center!important;align-items:center!important;width:100%!important}
 .footer-brand>a.nav-logo img{margin:0 auto!important}
+
+
+
+.portfolio{
+    padding:80px 10%;
+    background:#f8f9fb;
+}
+
+.portfolio h2{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:40px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.gallery-item{
+    overflow:hidden;
+    border-radius:15px;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    transition:.35s;
+}
+
+.gallery-item img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    display:block;
+    transition:.4s;
+}
+
+.gallery-item:hover{
+    transform:translateY(-8px);
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+/* Modal */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-content{
+    background:white;
+    width:90%;
+    max-width:750px;
+    border-radius:18px;
+    overflow:hidden;
+    animation:popup .35s ease;
+}
+
+@keyframes popup{
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.modal-content img{
+    width:100%;
+    max-height:450px;
+    object-fit:cover;
+}
+
+.modal-content h3{
+    padding:20px 25px 5px;
+}
+
+.modal-content p{
+    padding:0 25px 25px;
+    color:#666;
+}
+
+.close{
+    position:absolute;
+    margin:15px;
+    color:white;
+    font-size:35px;
+    cursor:pointer;
+    right:0;
+}
