@@ -11,10 +11,21 @@
   -------------------------------------------------------- */
   async function loadContent() {
     try {
-      const res = await fetch("./assets/content.md");
-      if (!res.ok) throw new Error("Could not load content.md");
-      const raw = await res.text();
-      return parseContent(raw);
+      const paths = ["./assets/content.md", "./content.md"];
+      let lastError = null;
+
+      for (const path of paths) {
+        try {
+          const res = await fetch(path, { cache: "no-store" });
+          if (!res.ok) throw new Error(`HTTP ${res.status} for ${path}`);
+          const raw = await res.text();
+          return parseContent(raw);
+        } catch (error) {
+          lastError = error;
+        }
+      }
+
+      throw lastError || new Error("Could not load content.md");
     } catch (err) {
       console.warn("content.md load failed:", err.message);
       return null;
@@ -343,14 +354,14 @@
           <div class="contact-detail-icon">✉</div>
           <div>
             <div class="contact-detail-label">Email</div>
-            <div class="contact-detail-text"><a href="mailto:${contact.email}" style="color:var(--c-accent)">${contact.email || ""}</a></div>
+            <div class="contact-detail-text"><a href="mailto:${escapeHTML(contact.email || "")}" style="color:var(--c-accent)">${contact.email || ""}</a></div>
           </div>
         </div>
         <div class="contact-detail">
           <div class="contact-detail-icon">◎</div>
           <div>
             <div class="contact-detail-label">Location</div>
-            <div class="contact-detail-text">${contact.location || ""}</div>
+            <div class="contact-detail-text">${escapeHTML(contact.location || "")}</div>
           </div>
         </div>`;
     }
@@ -381,6 +392,16 @@
   function el(id) {
     return document.getElementById(id);
   }
+
+  function escapeHTML(value) {
+    return String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
 
   function setText(id, val) {
     const node = el(id);
@@ -427,7 +448,7 @@
     window.addEventListener(
       "scroll",
       () => {
-        navbar.classList.toggle("scrolled", window.scrollY > 20);
+        navbar?.classList.toggle("scrolled", window.scrollY > 20);
         highlightActiveNav(sections, navLinks);
       },
       { passive: true },
@@ -464,6 +485,11 @@
      5. SCROLL REVEAL
   -------------------------------------------------------- */
   function initReveal() {
+    if (!("IntersectionObserver" in window)) {
+      document.querySelectorAll(".reveal").forEach((node) => node.classList.add("visible"));
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -481,6 +507,8 @@
 
   /* Observe dynamically added .reveal elements */
   function observeNewReveals() {
+    if (!("MutationObserver" in window) || !("IntersectionObserver" in window)) return;
+
     const observer = new MutationObserver(() => {
       document.querySelectorAll(".reveal:not(.observed)").forEach((node) => {
         node.classList.add("observed");
@@ -507,38 +535,74 @@
     const success = document.getElementById("formSuccess");
     if (!form) return;
 
-   form.addEventListener("submit", async (e) => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-    e.preventDefault();
+      const submitButton = form.querySelector('[type="submit"]');
+      const originalText = submitButton?.textContent || "Send Message";
 
-    const data = {
-        name: form.name.value,
-        email: form.email.value,
-        business: form.business.value,
-        service: form.service.value,
-        message: form.message.value
-    };
+      const formData = new FormData(form);
+      const data = {
+        name: String(formData.get("name") || "").trim(),
+        email: String(formData.get("email") || "").trim(),
+        business: String(formData.get("business") || "").trim(),
+        service: String(formData.get("service") || "").trim(),
+        message: String(formData.get("message") || "").trim(),
+      };
 
-    const response = await fetch(
-        "https://hidden-sunset-f091.marjbsayao.workers.dev/",
-        {
+      if (!data.name || !data.email || !data.message) {
+        alert("Please complete your name, email, and project message.");
+        return;
+      }
+
+      try {
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending...";
+        }
+
+        const response = await fetch(
+          "https://hidden-sunset-f091.marjbsayao.workers.dev/",
+          {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+              "Content-Type": "application/json",
+              Accept: "application/json",
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+          },
+        );
+
+        let responseBody = null;
+        try {
+          responseBody = await response.json();
+        } catch (_) {
+          responseBody = null;
         }
-    );
 
-    if (response.ok) {
+        if (!response.ok) {
+          throw new Error(
+            responseBody?.message || `Request failed with status ${response.status}`,
+          );
+        }
+
+        form.reset();
         form.style.display = "none";
-        success.style.display = "flex";
-    } else {
-        alert("Unable to send message.");
-    }
-
-});
+        if (success) success.style.display = "flex";
+      } catch (error) {
+        console.error("Contact form submission failed:", error);
+        alert(
+          "Unable to send your message right now. Please email marjbsayao@gmail.com directly.",
+        );
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+        }
+      }
+    });
   }
+
 
   /* --------------------------------------------------------
      7. BOOT
