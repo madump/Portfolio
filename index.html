@@ -3514,6 +3514,220 @@
       }
     }
 
+  
+
+    /* ===== SERVICES DESIGN-ONLY OVERRIDE (CONTENT PRESERVED) ===== */
+    #services {
+      background: #06080d !important;
+      color: #fff !important;
+      position: relative;
+      overflow: hidden;
+    }
+    #services::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(214,40,57,.16), transparent 30%),
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size: auto, 40px 40px, 40px 40px;
+      opacity: .85;
+    }
+    #services .container {
+      position: relative;
+      z-index: 2;
+    }
+    #services .center {
+      max-width: 820px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+    #services .section-label {
+      display: inline-block !important;
+      margin: 0 0 12px !important;
+      padding: 0 !important;
+      color: #ff4a5b !important;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    #services .section-label::before {
+      display: none !important;
+      content: none !important;
+    }
+    #services .section-heading {
+      width: 100% !important;
+      max-width: 760px !important;
+      margin: 0 auto 14px !important;
+      color: #ffffff !important;
+      text-align: center !important;
+      font-family: "Oswald", sans-serif !important;
+      font-size: clamp(42px, 6vw, 74px) !important;
+      line-height: .94 !important;
+      text-transform: uppercase;
+      letter-spacing: -.03em;
+      text-wrap: balance;
+    }
+    #services .section-sub {
+      width: 100% !important;
+      max-width: 660px !important;
+      margin: 0 auto !important;
+      color: #d3d8e1 !important;
+      text-align: center !important;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    #services .card-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 10px !important;
+      margin-top: 26px !important;
+    }
+    #services .card,
+    #services .card:nth-child(even) {
+      position: relative;
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: 370px;
+      padding: 20px 18px 18px !important;
+      background: #efefef !important;
+      color: #111318 !important;
+      border: 1px solid #12151b !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      overflow: hidden !important;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease !important;
+    }
+    #services .card:hover,
+    #services .card:nth-child(even):hover {
+      transform: translateY(-2px) !important;
+      border-color: #d62839 !important;
+      box-shadow: 0 14px 30px rgba(0,0,0,.16) !important;
+    }
+    #services .card .icon {
+      width: auto !important;
+      min-width: 0 !important;
+      height: auto !important;
+      min-height: 0 !important;
+      margin: 0 0 18px !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      color: transparent !important;
+      font-size: 0 !important;
+      line-height: 0 !important;
+      display: block !important;
+      position: relative;
+    }
+    #services .card .icon::before {
+      display: block;
+      color: #d62839;
+      font-family: "Bebas Neue", "Oswald", sans-serif;
+      font-size: 52px;
+      line-height: .9;
+      letter-spacing: .01em;
+    }
+    #services .card:nth-child(1) .icon::before { content: "01"; }
+    #services .card:nth-child(2) .icon::before { content: "02"; }
+    #services .card:nth-child(3) .icon::before { content: "03"; }
+    #services .card:nth-child(4) .icon::before { content: "04"; }
+    #services .card:nth-child(5) .icon::before { content: "05"; }
+    #services .card:nth-child(6) .icon::before { content: "06"; }
+    #services .card h3 {
+      margin: 0 0 10px !important;
+      color: #111318 !important;
+      font-family: "Oswald", sans-serif !important;
+      font-size: 23px !important;
+      line-height: 1.08 !important;
+      text-transform: uppercase;
+      letter-spacing: -.015em;
+    }
+    #services .card p {
+      margin: 0 !important;
+      color: #606773 !important;
+      font-size: 14px !important;
+      line-height: 1.65 !important;
+      opacity: 1 !important;
+    }
+    #services .service-features {
+      margin: 14px 0 0 !important;
+      gap: 7px !important;
+    }
+    #services .service-features li {
+      color: #606773 !important;
+      font-size: 13px !important;
+      line-height: 1.5 !important;
+    }
+    #services .service-features li::before {
+      color: #d62839 !important;
+    }
+    #services .card-action {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 8px !important;
+      width: fit-content !important;
+      margin-top: auto !important;
+      padding: 10px 12px !important;
+      border-top: 0 !important;
+      border-radius: 10px !important;
+      background: #111318 !important;
+      border: 1px solid #111318 !important;
+      color: #ffffff !important;
+      font-size: 10px !important;
+      font-weight: 900 !important;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      box-shadow: none !important;
+    }
+    #services .card-action span {
+      color: #ff4b5c !important;
+      font-size: 13px !important;
+    }
+    #services .card-action:hover {
+      background: #d62839 !important;
+      border-color: #d62839 !important;
+      color: #ffffff !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    #services .card-action:hover span {
+      color: #ffffff !important;
+    }
+    @media (max-width: 980px) {
+      #services .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+    @media (max-width: 640px) {
+      #services .center {
+        margin-bottom: 28px;
+      }
+      #services .section-heading {
+        font-size: clamp(34px, 10vw, 48px) !important;
+      }
+      #services .card-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      #services .card,
+      #services .card:nth-child(even) {
+        min-height: auto;
+        padding: 18px 16px 16px !important;
+      }
+      #services .card .icon::before {
+        font-size: 46px;
+      }
+      #services .card h3 {
+        font-size: 21px !important;
+      }
+    }
+
   </style>
 
   <style>
