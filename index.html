@@ -3515,6 +3515,40 @@
     }
 
   </style>
+
+  <style>
+    /* Compact About section refinement */
+    #about { padding: 76px 0 !important; }
+    #about .about-grid { align-items: stretch; }
+    #about .about-photo,
+    #about .about-photo-placeholder { min-height: 520px !important; }
+    #about .about-copy { padding: 42px 44px !important; }
+    #about .section-heading {
+      max-width: 620px !important;
+      font-size: clamp(42px, 5vw, 68px) !important;
+      line-height: .94 !important;
+      margin-bottom: 20px !important;
+    }
+    #about .about-copy p {
+      font-size: 15px !important;
+      line-height: 1.7 !important;
+      margin: 0 0 16px !important;
+    }
+    #about .about-stats { margin-top: 24px !important; }
+    #about .chips { margin-top: 20px !important; }
+    @media (max-width: 980px) {
+      #about .about-photo,
+      #about .about-photo-placeholder { min-height: 420px !important; }
+    }
+    @media (max-width: 640px) {
+      #about { padding: 58px 0 !important; }
+      #about .about-copy { padding: 30px 24px !important; }
+      #about .section-heading { font-size: clamp(38px, 12vw, 54px) !important; }
+      #about .about-photo,
+      #about .about-photo-placeholder { min-height: 360px !important; }
+    }
+  </style>
+
 </head>
 <body>
   <nav id="navbar" aria-label="Main navigation">
@@ -3546,11 +3580,10 @@
       <div class="hero-actions"><a href="#contact" class="btn btn-primary">Let's Work Together</a><a href="#work" class="btn btn-outline">View My Work</a></div>
     </div><aside class="hero-card hero-proof-card fade-up" aria-label="Experience highlights"><div class="hero-proof-top"><span class="hero-proof-kicker">Selected Impact</span><span class="hero-proof-index">01</span></div><div class="hero-visual hero-proof-visual"><div class="hero-proof-stat"><strong>50+</strong><span>Client Systems<br>Deployed</span></div></div><div class="hero-proof-copy"><p class="photo-note">GoHighLevel Expert &amp; Digital Systems Architect</p><p class="hero-proof-description">Conversion-focused systems built to connect websites, funnels, CRM pipelines, automation, and AI workflows.</p></div><div class="tool-strip hero-proof-tools"><span>GoHighLevel</span><span>Funnels</span><span>CRM</span><span>Automation</span><span>AI Workflows</span></div></aside></div></section>
 
-    <section id="about"><div class="container about-grid"><div class="about-photo fade-up"><div class="about-photo-placeholder" style="display:grid;min-height:680px"><div><strong>Add Marjory's photo here</strong><br><small>Recommended path: assets/images/marjory-sayao.jpg</small></div></div></div><div class="about-copy fade-up">
-      <span class="section-label">About Me</span><h2 class="section-heading">Strategic. Technical. Obsessively Outcome-Focused.</h2>
-      <p>I'm Marjory Say-ao, a Bachelor of Science in Information Technology graduate and a GoHighLevel Expert who is passionate about helping businesses grow through digital solutions. I specialize in building websites, sales funnels, CRM systems, workflow automations, and social media planning that streamline business processes and improve customer engagement.</p>
-      <p>With a background in Information Technology and expertise in GoHighLevel, I create digital solutions that combine functionality with user experience. From websites and sales funnels to CRM setup, workflow automation, social media planning, and graphic design, I focus on building systems that support business growth and simplify everyday operations.</p>
-      <p>I work with businesses, agencies, entrepreneurs, coaches, and consultants to create digital solutions that are functional, user-friendly, and tailored to each client's needs.</p>
+    <section id="about"><div class="container about-grid"><div class="about-photo fade-up"><div class="about-photo-placeholder" style="display:grid;min-height:520px"><div><strong>Add Marjory's photo here</strong><br><small>Recommended path: assets/images/marjory-sayao.jpg</small></div></div></div><div class="about-copy fade-up">
+      <span class="section-label">About Me</span><h2 class="section-heading">Strategic. Technical. Results-Focused.</h2>
+      <p>I'm Marjory Say-ao, an Information Technology graduate and GoHighLevel Expert who builds websites, funnels, CRM systems, and automations that help businesses operate more efficiently and convert more leads.</p>
+      <p>I combine technical thinking with practical design to create digital systems that are clear, user-friendly, and tailored to each client's goals.</p>
       <div class="about-stats"><div class="about-stat"><strong>50+</strong><span>Systems Built</span></div><div class="about-stat"><strong>3x</strong><span>Avg. Lead Increase</span></div><div class="about-stat"><strong>98%</strong><span>Client Retention</span></div></div>
       <div class="chips"><span class="chip">GoHighLevel Expert</span><span class="chip">IT Graduate</span><span class="chip">Automation Specialist</span><span class="chip">Graphic Designer</span></div>
     </div></div></section>
