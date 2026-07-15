@@ -2985,6 +2985,181 @@
       }
     }
 
+  
+    /* HERO CARD INTEGRATION REFINEMENT */
+    #hero .hero-grid {
+      grid-template-columns: minmax(0, 1.55fr) minmax(320px, .72fr) !important;
+      gap: 18px !important;
+    }
+
+    #hero .hero-content,
+    #hero .hero-proof-card {
+      border: 1px solid rgba(255,255,255,.16) !important;
+      background:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px),
+        rgba(10,12,16,.84) !important;
+      background-size: 44px 44px !important;
+    }
+
+    #hero .hero-content {
+      border-right-color: rgba(214,40,57,.42) !important;
+    }
+
+    #hero .hero-proof-card {
+      position: relative !important;
+      min-height: 100% !important;
+      padding: 28px !important;
+      display: grid !important;
+      grid-template-rows: auto minmax(250px, 1fr) auto auto !important;
+      gap: 22px !important;
+      overflow: hidden !important;
+      border-left: 3px solid #d62839 !important;
+      box-shadow: inset 18px 0 45px rgba(214,40,57,.035) !important;
+    }
+
+    #hero .hero-proof-card::after {
+      content: "MS";
+      position: absolute;
+      right: -18px;
+      bottom: 92px;
+      color: rgba(255,255,255,.025);
+      font: 700 150px/1 "Bebas Neue", sans-serif;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #hero .hero-proof-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    #hero .hero-proof-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    #hero .hero-proof-kicker,
+    #hero .hero-proof-index {
+      color: #ff5362;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    #hero .hero-proof-index {
+      color: rgba(255,255,255,.5);
+    }
+
+    #hero .hero-proof-visual {
+      min-height: 0 !important;
+      padding: 28px 16px !important;
+      border: 0 !important;
+      border-bottom: 1px solid rgba(255,255,255,.12) !important;
+      background: transparent !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    #hero .hero-proof-stat {
+      text-align: center;
+    }
+
+    #hero .hero-proof-stat strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #e1283c;
+      font: 700 clamp(96px, 10vw, 148px)/.78 "Bebas Neue", sans-serif;
+      letter-spacing: -.03em;
+    }
+
+    #hero .hero-proof-stat span {
+      display: block;
+      color: #fff;
+      font: 700 18px/1.35 "Inter", sans-serif;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    #hero .hero-proof-copy {
+      display: grid;
+      gap: 10px;
+    }
+
+    #hero .hero-proof-card .photo-note {
+      margin: 0;
+      color: #b9c4ff;
+      font-size: 11px;
+      line-height: 1.55;
+      letter-spacing: .14em;
+    }
+
+    #hero .hero-proof-description {
+      margin: 0;
+      color: #aeb5c0;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    #hero .hero-proof-tools {
+      margin: 0 !important;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    #hero .hero-proof-tools span {
+      border-color: rgba(255,255,255,.22) !important;
+      color: #fff !important;
+      background: rgba(255,255,255,.025) !important;
+    }
+
+    @media (max-width: 980px) {
+      #hero .hero-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+      }
+      #hero .hero-proof-card {
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto auto auto !important;
+        min-height: auto !important;
+      }
+      #hero .hero-proof-top,
+      #hero .hero-proof-tools {
+        grid-column: 1 / -1;
+      }
+      #hero .hero-proof-visual {
+        border-bottom: 0 !important;
+        border-right: 1px solid rgba(255,255,255,.12) !important;
+      }
+      #hero .hero-proof-copy {
+        align-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      #hero .hero-proof-card {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        padding: 22px !important;
+      }
+      #hero .hero-proof-visual {
+        border-right: 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,.12) !important;
+      }
+      #hero .hero-proof-stat strong {
+        font-size: 104px;
+      }
+      #hero .hero-proof-stat span {
+        font-size: 15px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -3007,7 +3182,7 @@
       <h1 class="hero-heading">Helping Businesses Grow with Funnels, Automation &amp; <span>Smart Digital Solutions</span></h1>
       <p class="hero-copy">I build websites, sales funnels, CRM systems, and automations using GoHighLevel to help businesses streamline their operations, generate more leads, and improve customer engagement.</p>
       <div class="hero-actions"><a href="#contact" class="btn btn-primary">Let's Work Together</a><a href="#work" class="btn btn-outline">View My Work</a></div>
-    </div><div class="hero-card fade-up"><div class="hero-visual"><div style="padding:36px;text-align:center"><div style="font:700 110px/1 'Bebas Neue',sans-serif;color:var(--accent)">50+</div><div style="color:#fff;text-transform:uppercase;letter-spacing:.16em;font-weight:800">Client Systems Deployed</div></div></div><p class="photo-note">GoHighLevel Expert &amp; Digital Systems Architect</p><div class="tool-strip"><span>GoHighLevel</span><span>Funnels</span><span>CRM</span><span>Automation</span><span>AI Workflows</span></div></div></div></section>
+    </div><aside class="hero-card hero-proof-card fade-up" aria-label="Experience highlights"><div class="hero-proof-top"><span class="hero-proof-kicker">Selected Impact</span><span class="hero-proof-index">01</span></div><div class="hero-visual hero-proof-visual"><div class="hero-proof-stat"><strong>50+</strong><span>Client Systems<br>Deployed</span></div></div><div class="hero-proof-copy"><p class="photo-note">GoHighLevel Expert &amp; Digital Systems Architect</p><p class="hero-proof-description">Conversion-focused systems built to connect websites, funnels, CRM pipelines, automation, and AI workflows.</p></div><div class="tool-strip hero-proof-tools"><span>GoHighLevel</span><span>Funnels</span><span>CRM</span><span>Automation</span><span>AI Workflows</span></div></aside></div></section>
 
     <section id="about"><div class="container about-grid"><div class="about-photo fade-up"><div class="about-photo-placeholder" style="display:grid;min-height:680px"><div><strong>Add Marjory's photo here</strong><br><small>Recommended path: assets/images/marjory-sayao.jpg</small></div></div></div><div class="about-copy fade-up">
       <span class="section-label">About Me</span><h2 class="section-heading">Strategic. Technical. Obsessively Outcome-Focused.</h2>
