@@ -8,6 +8,14 @@
   <meta property="og:title" content="Marjory Say-ao — GoHighLevel Expert & Digital Systems Architect">
   <meta property="og:description" content="I build client acquisition systems — websites, funnels, automation, and AI workflows — that turn traffic into revenue.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/mylogo.png">
+  <meta property="og:image:alt" content="Marjory Say-ao logo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Marjory Say-ao — GoHighLevel Expert & Digital Systems Architect">
+  <meta name="twitter:description" content="I build client acquisition systems — websites, funnels, automation, and AI workflows — that turn traffic into revenue.">
+  <meta name="twitter:image" content="assets/mylogo.png">
+  <link rel="icon" type="image/png" href="assets/mylogo.png">
+  <link rel="apple-touch-icon" href="assets/mylogo.png">
   <title>Marjory Say-ao — GoHighLevel Expert & Digital Systems Architect</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,7 +101,8 @@
       border-bottom: 1px solid rgba(255,255,255,.08);
     }
     nav .container { min-height: 76px; display: flex; align-items: center; gap: 28px; }
-    .nav-logo { font-family: "Manrope", sans-serif; font-size: 24px; font-weight: 800; color: var(--white); }
+    .nav-logo { font-family: "Manrope", sans-serif; font-size: 24px; font-weight: 800; color: var(--white); display: inline-flex; align-items: center; }
+    .nav-logo img { display: block; width: auto; height: 46px; max-width: 180px; object-fit: contain; }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 24px; margin: 0 0 0 auto; padding: 0; list-style: none; }
     .nav-links a { color: #d7dde5; font-weight: 600; font-size: 14px; }
@@ -3761,13 +3770,41 @@
       #about .about-photo,
       #about .about-photo-placeholder { min-height: 360px !important; }
     }
-  </style>
+  
+
+    /* ABOUT PHOTO FINAL FIX */
+    #about .about-photo::before {
+      content: none !important;
+      display: none !important;
+    }
+    #about .about-photo {
+      padding: 0 !important;
+      background: #111 !important;
+      overflow: hidden !important;
+    }
+    #about .about-photo img {
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 690px !important;
+      object-fit: cover !important;
+      object-position: center top !important;
+      filter: grayscale(1) contrast(1.08);
+      border-radius: 0 !important;
+    }
+    @media (max-width: 980px) {
+      #about .about-photo img { min-height: 520px !important; }
+    }
+    @media (max-width: 640px) {
+      #about .about-photo img { min-height: 440px !important; }
+    }
+</style>
 
 </head>
 <body>
   <nav id="navbar" aria-label="Main navigation">
     <div class="container">
-      <a href="#hero" class="nav-logo">MS<span>.</span></a>
+      <a href="#hero" class="nav-logo" aria-label="Marjory Say-ao home"><img src="assets/mylogo.png" alt="Marjory Say-ao logo"></a>
       <ul class="nav-links">
         <li><a href="#hero">Home</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#process">Process</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#contact">Contact</a></li>
       </ul>
@@ -3794,7 +3831,7 @@
       <div class="hero-actions"><a href="#contact" class="btn btn-primary">Let's Work Together</a><a href="#work" class="btn btn-outline">View My Work</a></div>
     </div><aside class="hero-card hero-proof-card fade-up" aria-label="Experience highlights"><div class="hero-proof-top"><span class="hero-proof-kicker">Selected Impact</span><span class="hero-proof-index">01</span></div><div class="hero-visual hero-proof-visual"><div class="hero-proof-stat"><strong>50+</strong><span>Client Systems<br>Deployed</span></div></div><div class="hero-proof-copy"><p class="photo-note">GoHighLevel Expert &amp; Digital Systems Architect</p><p class="hero-proof-description">Conversion-focused systems built to connect websites, funnels, CRM pipelines, automation, and AI workflows.</p></div><div class="tool-strip hero-proof-tools"><span>GoHighLevel</span><span>Funnels</span><span>CRM</span><span>Automation</span><span>AI Workflows</span></div></aside></div></section>
 
-    <section id="about"><div class="container about-grid"><div class="about-photo fade-up"><div class="about-photo-placeholder" style="display:grid;min-height:520px"><div><strong>Add Marjory's photo here</strong><br><small>Recommended path: assets/images/marjory-sayao.jpg</small></div></div></div><div class="about-copy fade-up">
+    <section id="about"><div class="container about-grid"><div class="about-photo fade-up"><img src="./assets/myphoto.png" alt="Marjory Say-ao" loading="lazy"></div><div class="about-copy fade-up">
       <span class="section-label">About Me</span><h2 class="section-heading">Strategic. Technical. Results-Focused.</h2>
       <p>I'm Marjory Say-ao, an Information Technology graduate and GoHighLevel Expert who builds websites, funnels, CRM systems, and automations that help businesses operate more efficiently and convert more leads.</p>
       <p>I combine technical thinking with practical design to create digital systems that are clear, user-friendly, and tailored to each client's goals.</p>
