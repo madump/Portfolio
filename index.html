@@ -3841,6 +3841,266 @@
       .social-slide img { border-radius: inherit; }
       .social-carousel-btn { width: 42px; height: 42px; }
     }
+  
+    /* ==========================================================
+       MARJORY PALETTE — FINAL OVERRIDE
+       #1d1e2c  deep navy
+       #59656f  slate
+       #ac9fbb  dusty lavender
+       #ddbdd5  blush lilac
+       #ffffff  white
+    ========================================================== */
+    :root {
+      --accent: #ac9fbb;
+      --accent-dark: #59656f;
+      --dark: #1d1e2c;
+      --dark-2: #292b3d;
+      --text: #1d1e2c;
+      --muted: #59656f;
+      --line: rgba(89,101,111,.25);
+      --surface: #f7f4f8;
+      --white: #ffffff;
+      --shadow: 0 24px 60px rgba(29,30,44,.14);
+    }
+
+    body {
+      background: #f7f4f8;
+      color: #1d1e2c;
+    }
+
+    ::selection { background: #ddbdd5; color: #1d1e2c; }
+    :focus-visible { outline-color: #ac9fbb !important; }
+
+    nav {
+      background: rgba(29,30,44,.95) !important;
+      border-bottom-color: rgba(221,189,213,.24) !important;
+    }
+    .nav-links a { color: rgba(255,255,255,.82) !important; }
+    .nav-links a:hover,
+    .footer-links a:hover,
+    .mini-action:hover { color: #ddbdd5 !important; }
+    .hamburger { background: #292b3d !important; }
+
+    .btn-primary {
+      background: #ac9fbb !important;
+      border-color: #ac9fbb !important;
+      color: #1d1e2c !important;
+    }
+    .btn-primary:hover {
+      background: #ddbdd5 !important;
+      border-color: #ddbdd5 !important;
+      color: #1d1e2c !important;
+    }
+    .btn-dark { background: #1d1e2c !important; color: #fff !important; }
+    .btn-dark:hover { background: #59656f !important; border-color: #59656f !important; }
+    .btn-outline { border-color: rgba(255,255,255,.34) !important; }
+    .btn-outline:hover { background: #fff !important; color: #1d1e2c !important; }
+
+    #hero {
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+        radial-gradient(circle at 80% 18%, rgba(172,159,187,.25), transparent 30%),
+        radial-gradient(circle at 18% 85%, rgba(221,189,213,.12), transparent 28%),
+        #1d1e2c !important;
+      background-size: 52px 52px, 52px 52px, auto, auto !important;
+    }
+    #hero::after { color: rgba(221,189,213,.16) !important; }
+    .hero-content {
+      border-color: rgba(221,189,213,.20) !important;
+      background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.01)) !important;
+    }
+    .eyebrow,
+    .hero-heading span { color: #ddbdd5 !important; }
+    .eyebrow::before { background: #ac9fbb !important; }
+    .hero-copy { color: rgba(255,255,255,.78) !important; }
+    .hero-card,
+    .hero-visual { border-color: rgba(172,159,187,.45) !important; background: #292b3d !important; }
+    .tool-strip span { border-color: rgba(221,189,213,.25) !important; }
+    .tool-strip span:hover { background: rgba(221,189,213,.12) !important; border-color: #ac9fbb !important; }
+
+    .section-label { color: #59656f !important; }
+    .section-heading { color: #1d1e2c !important; }
+    .section-sub,
+    .about-copy p,
+    .project-body p,
+    .edu-card p,
+    .step p { color: #59656f !important; }
+
+    #about,
+    #work,
+    #process,
+    #education,
+    #contact { background: #f7f4f8 !important; }
+
+    #services,
+    #skills,
+    #experience {
+      background: #1d1e2c !important;
+      color: #fff !important;
+    }
+    #services .section-heading,
+    #skills .section-heading,
+    #experience .section-heading { color: #fff !important; }
+    #services .section-label,
+    #skills .section-label,
+    #experience .section-label { color: #ddbdd5 !important; }
+    #services .section-sub,
+    #skills .section-sub,
+    #experience .section-sub { color: rgba(255,255,255,.68) !important; }
+
+    .stats-grid,
+    .stat,
+    .about-copy,
+    #services .card,
+    #services .card:nth-child(even),
+    #work .project-card,
+    #process .step,
+    #education .edu-card,
+    #contact .contact-grid > div:first-child,
+    form {
+      background: #fff !important;
+      color: #1d1e2c !important;
+      border-color: rgba(89,101,111,.24) !important;
+    }
+
+    .stat-icon,
+    #process .step-num {
+      background: #1d1e2c !important;
+      color: #ddbdd5 !important;
+    }
+    .stat strong,
+    #services .icon { color: #ac9fbb !important; }
+    .stat strong::after { background: #ac9fbb !important; }
+    .stat:hover { border-color: #ac9fbb !important; background: #fff !important; }
+
+    .about-photo { background: linear-gradient(145deg, #ac9fbb, #fff 48%, #ddbdd5) !important; }
+    .about-photo::after { color: #ddbdd5 !important; }
+    .chip { background: #1d1e2c !important; color: #fff !important; }
+    .chip:hover { background: #59656f !important; border-color: #59656f !important; }
+
+    #services .card:hover,
+    #work .project-card:hover,
+    #skills .skill-group:hover,
+    #process .step:hover,
+    #education .edu-card:hover,
+    .timeline-item:hover,
+    .result-card:hover,
+    .social-slide[data-active="true"] {
+      border-color: #ac9fbb !important;
+      box-shadow: 0 18px 42px rgba(29,30,44,.16) !important;
+    }
+
+    #services .card-action,
+    #work .card-action,
+    .dark-action {
+      background: #1d1e2c !important;
+      border-color: #1d1e2c !important;
+      color: #fff !important;
+    }
+    .card-action span,
+    .dark-action span { color: #ddbdd5 !important; }
+    .card-action:hover,
+    .dark-action:hover {
+      background: #59656f !important;
+      border-color: #59656f !important;
+      color: #fff !important;
+    }
+
+    #results {
+      background: #ddbdd5 !important;
+      color: #1d1e2c !important;
+      border-color: rgba(89,101,111,.20) !important;
+    }
+    #results .section-heading,
+    #results .section-label { color: #1d1e2c !important; }
+    #results .result-card,
+    #results .result-card:hover {
+      background: #1d1e2c !important;
+      color: #fff !important;
+      border-color: #1d1e2c !important;
+    }
+    #results .result-card strong { color: #ddbdd5 !important; }
+    #results .result-card p { color: rgba(255,255,255,.72) !important; }
+
+    .filter-btn { background: #fff !important; color: #1d1e2c !important; border-color: #59656f !important; }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #1d1e2c !important;
+      color: #fff !important;
+      border-color: #1d1e2c !important;
+      box-shadow: inset 0 -3px 0 #ac9fbb !important;
+    }
+    .project-thumb {
+      background:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        #1d1e2c !important;
+      background-size: 28px 28px !important;
+      color: #ddbdd5 !important;
+    }
+    .project-thumb::after { background: #ac9fbb !important; color: #1d1e2c !important; }
+    .tag { background: #ddbdd5 !important; color: #1d1e2c !important; }
+
+    #skills .skill-group {
+      background: #292b3d !important;
+      color: #fff !important;
+      border-color: rgba(221,189,213,.16) !important;
+    }
+    #skills .skill-group h3 { color: #ddbdd5 !important; }
+    #skills .skill-list span { color: rgba(255,255,255,.84) !important; border-color: rgba(221,189,213,.20) !important; }
+    #skills .skill-list span:hover { background: rgba(221,189,213,.10) !important; border-color: #ac9fbb !important; }
+
+    .timeline-item { background: #292b3d !important; border-color: rgba(221,189,213,.16) !important; }
+    .timeline-side,
+    .timeline-date { background: #fff !important; color: #1d1e2c !important; }
+    .timeline-date { border-color: rgba(172,159,187,.35) !important; }
+    .timeline-date::before { background: #ac9fbb !important; box-shadow: 0 0 0 6px rgba(172,159,187,.16) !important; }
+    .timeline-years span,
+    .timeline-item h4 { color: #ddbdd5 !important; }
+    .timeline-item li { background: #1d1e2c !important; border-color: rgba(221,189,213,.16) !important; color: rgba(255,255,255,.82) !important; }
+    .timeline-item li::before,
+    .current-badge { background: #ac9fbb !important; color: #1d1e2c !important; }
+
+    #cta {
+      background: #1d1e2c !important;
+      border-top-color: #ac9fbb !important;
+    }
+    #cta::before { background: rgba(172,159,187,.14) !important; }
+    #cta::after { border-color: rgba(221,189,213,.08) !important; }
+    .cta-inner h2 span { color: #ddbdd5 !important; }
+
+    input,
+    select,
+    textarea {
+      background: #fff !important;
+      color: #1d1e2c !important;
+      border-color: rgba(89,101,111,.38) !important;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #ac9fbb !important;
+      box-shadow: 0 0 0 4px rgba(172,159,187,.18) !important;
+    }
+    .form-status { color: #59656f !important; }
+    .contact-panel { background: #1d1e2c !important; border-color: #1d1e2c !important; }
+    .contact-panel p { color: rgba(255,255,255,.72) !important; }
+    .contact-panel::after { color: rgba(221,189,213,.07) !important; }
+    .contact-links a:hover { background: rgba(221,189,213,.10) !important; border-color: #ac9fbb !important; }
+
+    .social-carousel { border-color: rgba(89,101,111,.22) !important; }
+    .social-carousel::before { color: #59656f !important; }
+    .social-slide[data-active="true"] { box-shadow: 0 30px 72px rgba(29,30,44,.24), 0 0 0 1px rgba(172,159,187,.30) !important; }
+    .social-carousel-btn { color: #1d1e2c !important; border-color: rgba(89,101,111,.28) !important; }
+    .social-carousel-btn:hover { background: #1d1e2c !important; color: #fff !important; border-color: #1d1e2c !important; }
+    .social-carousel-dot { background: #ac9fbb !important; opacity: .55; }
+    .social-carousel-dot.active { background: #1d1e2c !important; opacity: 1; }
+
+    footer { background: #151622 !important; color: rgba(255,255,255,.66) !important; }
+    .footer-logo span { color: #ddbdd5 !important; }
+    #scroll-top { background: #ac9fbb !important; color: #1d1e2c !important; }
+
   </style>
 </head>
 <body>
