@@ -3668,7 +3668,180 @@
     .resume-modal-title { font-size: 22px; }
     .resume-download { display: none; }
   }
-</style>
+
+
+    /* Website gallery: clickable featured preview and thumbnails */
+    #portfolio-featured.is-clickable {
+      cursor: pointer;
+    }
+
+    #portfolio-featured.is-clickable::after {
+      content: "Visit Website ↗";
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      z-index: 5;
+      padding: 10px 14px;
+      background: #d62839;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,.35);
+      font: 700 12px/1 "Inter", sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    #portfolio-featured.is-clickable:focus-visible {
+      outline: 3px solid #d62839;
+      outline-offset: 4px;
+    }
+
+
+    /* SOCIAL MEDIA 4:5 COVERFLOW CAROUSEL */
+    .social-carousel {
+      position: relative;
+      width: 100%;
+      max-width: none;
+      margin: 62px 0 0;
+      padding: 34px 30px 24px;
+      border: 1px solid rgba(17,19,24,.12);
+      border-radius: 0;
+      background:
+        radial-gradient(circle at 50% 12%, rgba(214,40,57,.10), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(244,246,248,.92));
+      box-shadow: 0 24px 70px rgba(9,10,13,.10);
+      overflow: hidden;
+    }
+    .social-carousel::before {
+      content: "SOCIAL DESIGN SHOWCASE";
+      position: absolute;
+      top: 16px;
+      left: 22px;
+      z-index: 25;
+      color: #111318;
+      font: 800 11px/1 "Inter", sans-serif;
+      letter-spacing: .18em;
+      pointer-events: none;
+    }
+    .social-carousel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(244,246,248,.96), transparent 13%, transparent 87%, rgba(244,246,248,.96));
+      pointer-events: none;
+      z-index: 24;
+    }
+    .social-carousel-viewport {
+      position: relative;
+      height: clamp(390px, 49vw, 620px);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      z-index: 2;
+    }
+    .social-carousel-track { position: relative; width: 100%; height: 100%; }
+    .social-slide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: clamp(195px, 25vw, 330px);
+      aspect-ratio: 4 / 5;
+      padding: 0;
+      transform: translate(-50%,-50%) translateX(calc(var(--offset) * clamp(142px, 17.5vw, 236px))) scale(calc(1 - (min(abs(var(--offset)), 3) * .095))) rotateY(calc(var(--offset) * -3deg));
+      z-index: calc(20 - abs(var(--offset)));
+      opacity: calc(1 - (min(abs(var(--offset)), 4) * .17));
+      transition: transform .58s cubic-bezier(.22,.8,.22,1), opacity .4s ease, filter .4s ease, box-shadow .35s ease, border-color .35s ease;
+      border: 0;
+      border-radius: 10px;
+      background: transparent;
+      box-shadow: 0 18px 38px rgba(9,10,13,.18);
+      overflow: hidden;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .social-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 0 0 1px rgba(17,19,24,.16);
+      pointer-events: none;
+    }
+    .social-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+      transition: transform .55s cubic-bezier(.22,.8,.22,1);
+    }
+    .social-slide[data-active="true"] {
+      z-index: 30;
+      opacity: 1;
+      filter: none;
+      border-color: transparent;
+      box-shadow: 0 30px 72px rgba(9,10,13,.27), 0 0 0 1px rgba(214,40,57,.20);
+    }
+    .social-slide[data-active="true"] img { transform: scale(1.015); }
+    .social-slide:not([data-active="true"]) { filter: saturate(.68) brightness(.80) contrast(.94); }
+    .social-slide:hover { box-shadow: 0 28px 68px rgba(9,10,13,.25); }
+    .social-carousel-controls {
+      position: relative;
+      z-index: 30;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 18px;
+    }
+    .social-carousel-btn {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(17,19,24,.22);
+      border-radius: 8px;
+      background: #fff;
+      color: #111318;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+      box-shadow: 0 8px 20px rgba(9,10,13,.08);
+      transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .social-carousel-btn:hover {
+      background: #111318;
+      color: #fff;
+      border-color: #111318;
+      transform: translateY(-2px);
+    }
+    .social-carousel-dots { display: flex; align-items: center; gap: 7px; }
+    .social-carousel-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #b6bbc3;
+      cursor: pointer;
+      transition: width .25s ease, background-color .25s ease;
+    }
+    .social-carousel-dot.active { width: 26px; border-radius: 99px; background: #d62839; }
+    @media (max-width: 640px) {
+      .social-carousel { margin-top: 42px; padding: 30px 12px 20px; border-radius: 0; }
+      .social-carousel::before { left: 15px; top: 13px; font-size: 9px; }
+      .social-carousel::after { background: linear-gradient(90deg, rgba(244,246,248,.92), transparent 8%, transparent 92%, rgba(244,246,248,.92)); }
+      .social-carousel-viewport { height: 430px; }
+      .social-slide {
+        width: min(68vw, 280px);
+        border-width: 0;
+        border-radius: 9px;
+        transform: translate(-50%,-50%) translateX(calc(var(--offset) * 50vw)) scale(calc(1 - (min(abs(var(--offset)), 2) * .12)));
+      }
+      .social-slide img { border-radius: inherit; }
+      .social-carousel-btn { width: 42px; height: 42px; }
+    }
+  </style>
 </head>
 <body>
   <nav id="navbar" aria-label="Main navigation">
@@ -3760,11 +3933,11 @@
 
     <section id="work">
       <div class="container">
-        <div class="center"><span class="section-label">Featured Portfolio</span><h2 class="section-heading">A flexible portfolio for different project types.</h2><p class="section-sub">Replace the placeholders below with your strongest screenshots, project details, and live links.</p></div>
-        <div class="filters" aria-label="Portfolio filters"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="funnels">Funnels</button><button class="filter-btn" data-filter="websites">Websites</button><button class="filter-btn" data-filter="automations">Automations</button><button class="filter-btn" data-filter="design">Design</button><button class="filter-btn" data-filter="video">Video</button></div>
+        <div class="center"><span class="section-label">Featured Portfolio</span><h2 class="section-heading">A flexible portfolio for different project types.</h2></div>
+        <div class="filters" aria-label="Portfolio filters"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="funnels">Funnels</button><button class="filter-btn" data-filter="websites">Websites</button><button class="filter-btn" data-filter="automations">Automations</button><button class="filter-btn" data-filter="video">Video</button></div>
         <div class="project-grid">
           <article class="project-card tech-card" data-category="funnels"><div class="project-thumb" data-gallery="funnels" role="button" tabindex="0" aria-label="Open funnel project image"><img src="/assets/funnel/funnel1.png" alt="Excelerate Solutions lead generation funnel" loading="lazy"></div><div class="project-body"><span class="tag">GoHighLevel Funnel</span><h3>Lead Generation Funnel</h3><p><strong>Problem:</strong> Leads needed a clearer path to inquiry. <strong>Solution:</strong> A focused landing page with CRM and follow-up integration.</p><a class="card-action drive-portfolio-link" href="https://drive.google.com/drive/folders/1NuQ4m2-6IXoL3xchVEIE0yacfJlVFNEK?usp=drive_link" target="_blank" rel="noopener noreferrer">View Live Funnel <span>↗</span></a></div></article>
-          <article class="project-card tech-card" data-category="websites"><div class="project-thumb" data-gallery="website" role="button" tabindex="0" aria-label="Open 9-image project gallery"><img src="/assets/website/website1.png"></div><div class="project-body"><span class="tag">Business Website</span><h3>Responsive Business Website</h3><p><strong>Problem:</strong> The existing site lacked clarity. <strong>Solution:</strong> A responsive, organized website built around services and conversion.</p><a class="card-action drive-portfolio-link" href="https://drive.google.com/drive/folders/1NuQ4m2-6IXoL3xchVEIE0yacfJlVFNEK?usp=drive_link" target="_blank" rel="noopener noreferrer">View More Websites <span>↗</span></a></div></article>
+          <article class="project-card tech-card" data-category="websites"><div class="project-thumb" data-gallery="website" role="button" tabindex="0" aria-label="Open 9-image project gallery"><img src="/assets/website/website1.png" alt="Compass MT website" loading="lazy"></div><div class="project-body"><span class="tag">Business Website</span><h3>Responsive Business Website</h3><p><strong>Problem:</strong> The existing site lacked clarity. <strong>Solution:</strong> A responsive, organized website built around services and conversion.</p><a class="card-action drive-portfolio-link" href="https://drive.google.com/drive/folders/1NuQ4m2-6IXoL3xchVEIE0yacfJlVFNEK?usp=drive_link" target="_blank" rel="noopener noreferrer">View More Websites <span>↗</span></a></div></article>
           <article class="project-card tech-card" data-category="automations"><div class="project-thumb" data-gallery="ghl-automation" role="button" tabindex="0" aria-label="Open GHL Automation project gallery"><img src="assets/GHL-Au/auto-1.png"></div><div class="project-body"><span class="tag">GHL Automation</span><h3>GHL Automation</h3><p><strong>Problem:</strong> Leads needed faster and more consistent follow-up. <strong>Solution:</strong> GoHighLevel workflows for email, SMS, pipeline updates, reminders, and internal notifications.</p><a class="card-action" href="https://drive.google.com/drive/folders/1eS3IPFscSX-aul1YUhHJJxygLBovSRgM?usp=drive_link" target="_blank" rel="noopener noreferrer">View More Automation<span>↗</span></a></div></article>
           <article class="project-card tech-card" data-category="automations"><div class="project-thumb" data-gallery="n8n-automation" role="button" tabindex="0" aria-label="Open N8N Automation project gallery"><img src="/assets/N8N-Au/auto-1.png"></div><div class="project-body"><span class="tag">N8N Automation</span><h3>N8N Automation</h3><p><strong>Problem:</strong> Complex processes required flexible connections between multiple systems. <strong>Solution:</strong> Custom n8n workflows using APIs, webhooks, conditional logic, data transformation, and error handling.</p><a class="card-action" href="https://drive.google.com/drive/folders/1TXh0CRfO589icmNbXbfW9EC1-gSs3vcC?usp=drive_link" target="_blank" rel="noopener noreferrer">View More N8N Automation <span>↗</span></a></div></article>
           <article class="project-card tech-card" data-category="automations"><div class="project-thumb" data-gallery="make-automation" role="button" tabindex="0" aria-label="Open Make Automation project gallery"><img src="/assets/Make-Au/auto-1.png"></div><div class="project-body"><span class="tag">Make Automation</span><h3>Make Automation</h3><p><strong>Problem:</strong> Repetitive data entry slowed down daily operations. <strong>Solution:</strong> Make scenarios that connect apps, map fields, route data, apply filters, and automate multi-step processes.</p><a class="card-action" href="https://drive.google.com/drive/folders/1jJMgzNtEVaUsp4U0UzhUJwEpIkdTazAY?usp=drive_link" target="_blank" rel="noopener noreferrer">View More Make Automation <span>↗</span></a></div></article>
@@ -3784,6 +3957,19 @@
             </div>
             <div class="project-body"><span class="tag">Creative Content</span><h3>Social & Video Campaign Assets</h3><p><strong>Problem:</strong> The brand needed consistent content. <strong>Solution:</strong> Canva graphics and edited short-form and long-form videos using Capcut.</p><a class="card-action" href="https://drive.google.com/drive/folders/1xJEE06GNjncYQHHyvlPRIwPYufpm6Hll?usp=drive_link" target="_blank" rel="noopener noreferrer">View More Videos <span>↗</span></a></div>
           </article>
+        </div>
+
+        <div class="social-carousel" aria-label="Social media design carousel">
+          <div class="social-carousel-viewport">
+            <div class="social-carousel-track">
+              <button class="social-slide" type="button" aria-label="View social design 1"><img src="/assets/social/social1.png" alt="Social media design 1" loading="lazy"></button><button class="social-slide" type="button" aria-label="View social design 2"><img src="/assets/social/social2.png" alt="Social media design 2" loading="lazy"></button><button class="social-slide" type="button" aria-label="View social design 3"><img src="/assets/social/social3.png" alt="Social media design 3" loading="lazy"></button><button class="social-slide" type="button" aria-label="View social design 4"><img src="/assets/social/social4.png" alt="Social media design 4" loading="lazy"></button><button class="social-slide" type="button" aria-label="View social design 5"><img src="/assets/social/social5.png" alt="Social media design 5" loading="lazy"></button><button class="social-slide" type="button" aria-label="View social design 6"><img src="/assets/social/social6.png" alt="Social media design 6" loading="lazy"></button><button class="social-slide" type="button" aria-label="View social design 7"><img src="/assets/social/social7.png" alt="Social media design 7" loading="lazy"></button><button class="social-slide" type="button" aria-label="View social design 8"><img src="/assets/social/social8.png" alt="Social media design 8" loading="lazy"></button><button class="social-slide" type="button" aria-label="View social design 9"><img src="/assets/social/social9.png" alt="Social media design 9" loading="lazy"></button><button class="social-slide" type="button" aria-label="View social design 10"><img src="/assets/social/social10.png" alt="Social media design 10" loading="lazy"></button>
+            </div>
+          </div>
+          <div class="social-carousel-controls">
+            <button class="social-carousel-btn social-prev" type="button" aria-label="Previous image">&#8592;</button>
+            <div class="social-carousel-dots" aria-label="Choose carousel image"></div>
+            <button class="social-carousel-btn social-next" type="button" aria-label="Next image">&#8594;</button>
+          </div>
         </div>
         <div class="center" style="margin-top:34px"><a class="btn btn-dark" target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1u092gy-B4LW8uMC9OKTmoucCMsCnrTej?usp=sharing">Open Full Portfolio</a></div>
       </div>
@@ -3815,7 +4001,7 @@
         <div class="timeline">
           <article class="timeline-item fade-up">
             <div class="timeline-side">
-              <div class="timeline-date">July 2020 – 2026</div>
+              <div class="timeline-date">2020 – 2026</div>
               <div class="timeline-years">6<span>+</span></div>
               <p class="timeline-side-copy">Years building funnels, CRM systems, automations, and digital experiences.</p>
             </div>
@@ -3823,7 +4009,7 @@
               <div class="timeline-topline">
                 <div>
                   <h3>GoHighLevel Expert &amp; Automation Specialist</h3>
-                  <h4>NewWine Digital</h4>
+                  <h4>JJM DIGITAL SOLUTIONS</h4>
                 </div>
                 <span class="current-badge">Current</span>
               </div>
@@ -3871,25 +4057,16 @@
         </div>
         <aside class="contact-panel"><h3>Direct Contact</h3><p>Reach out directly or review more of my work through the links below.</p><div class="contact-links"><a href="mailto:Jhimrickofficial@gmail.com">Jhimrickofficial@gmail.com</a><a href="tel:+639362651815">+63 936 265 1815</a><a target="_blank" rel="noopener" href="https://facebook.com/jhimrickofficial">Facebook Profile</a><a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1u092gy-B4LW8uMC9OKTmoucCMsCnrTej?usp=sharing">Google Drive Portfolio</a></div>
 
-          <!-- Google Calendar Appointment Scheduling begin -->
-          <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-          <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+          <!-- Calendar booking button: opens the same styled modal used in the hero -->
           <div class="calendar-booking-button">
-            <script>
-            (function() {
-              var target = document.currentScript;
-              window.addEventListener('load', function() {
-                calendar.schedulingButton.load({
-                  url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0WAtoUD4Pczuhn-5tvDgX5Kc2So4rNfQRj0VdUSuJ7ZZLzI-fPS_VpjX_acFgV4ZWCtVuWm4At?gv=true',
-                  color: '#D62839',
-                  label: 'Book an Appointment',
-                  target,
-                });
-              });
-            })();
-            </script>
+            <button
+              type="button"
+              class="btn btn-primary calendar-popup-trigger"
+              aria-haspopup="dialog"
+              aria-controls="calendar-popup">
+              Book an Appointment
+            </button>
           </div>
-          <!-- end Google Calendar Appointment Scheduling -->
         </aside>
       </div>
     </section>
@@ -3915,10 +4092,10 @@
   <div class="calendar-popup" id="calendar-popup" aria-hidden="true">
     <div class="calendar-popup-dialog" role="dialog" aria-modal="true" aria-labelledby="calendar-popup-title">
       <div class="calendar-popup-header">
-        <h2 class="calendar-popup-title" id="calendar-popup-title">Book a Discovery Call</h2>
+        <h2 class="calendar-popup-title" id="calendar-popup-title">Book an Appointment</h2>
         <button class="calendar-popup-close" id="close-calendar-popup" type="button" aria-label="Close calendar popup">&times;</button>
       </div>
-      <iframe class="calendar-popup-frame" id="calendar-popup-frame" title="Book a discovery call" data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0WAtoUD4Pczuhn-5tvDgX5Kc2So4rNfQRj0VdUSuJ7ZZLzI-fPS_VpjX_acFgV4ZWCtVuWm4At?gv=true" loading="lazy"></iframe>
+      <iframe class="calendar-popup-frame" id="calendar-popup-frame" title="Book an appointment" data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1s9ZiewEGBX1Z7alvve0D0L3Dcf9KeWCT-qWfswH8RLhlqgSk2J8IrSImAoCV7tNnxlUmfkzgS?gv=true" loading="lazy"></iframe>
     </div>
   </div>
 
@@ -4052,7 +4229,6 @@
         <rect x="110" y="120" width="1380" height="760" fill="#12151b" stroke="#e12639" stroke-width="4"/>
         <text x="150" y="220" fill="#e12639" font-family="Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="6">PORTFOLIO IMAGE ${number}</text>
         <text x="150" y="520" fill="#ffffff" font-family="Arial, sans-serif" font-size="76" font-weight="800">${safeTitle}</text>
-        <text x="150" y="600" fill="#aeb5c0" font-family="Arial, sans-serif" font-size="30">Replace this placeholder with your project screenshot.</text>
       </svg>`;
       return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
     }
@@ -4087,46 +4263,198 @@
       alt: `Creative portfolio video ${index + 1}`
     }));
 
+
+    const funnelProjects = [
+      {
+        type: 'image',
+        src: 'assets/funnel/funnel1.png',
+        alt: 'Excelerate Solutions funnel',
+        title: 'Excelerate Solutions',
+        url: 'https://exceleratesolutions.co/home'
+      },
+      {
+        type: 'image',
+        src: 'assets/funnel/funnel2.png',
+        alt: 'ROG New Jersey agent funnel',
+        title: 'ROG New Jersey',
+        url: 'https://agent.joinrognj.com/home-464367'
+      },
+      {
+        type: 'image',
+        src: 'assets/funnel/funnel3.png',
+        alt: 'DPC Life funnel',
+        title: 'DPC Life',
+        url: 'https://dpclife.com/home'
+      },
+      {
+        type: 'image',
+        src: 'assets/funnel/funnel4.png',
+        alt: 'Put Nightmares to Bed funnel',
+        title: 'Put Nightmares to Bed',
+        url: 'https://putnightmarestobed.com/'
+      },
+      {
+        type: 'image',
+        src: 'assets/funnel/funnel5.png',
+        alt: 'Harmony Ops DPC bot funnel',
+        title: 'Harmony Ops for DPC',
+        url: 'https://24-7-bot.harmonyopsfordpc.com/dpc'
+      },
+      {
+        type: 'image',
+        src: 'assets/funnel/funnel6.png',
+        alt: 'Professor Pelican ads funnel',
+        title: 'Professor Pelican Ads',
+        url: 'https://ads.callprofessorpelican.com/'
+      },
+      {
+        type: 'image',
+        src: 'assets/funnel/funnel7.png',
+        alt: 'Advantage Clean basement funnel',
+        title: 'Advantage Clean',
+        url: 'https://demo.advantageclean.com/basement'
+      },
+      {
+        type: 'image',
+        src: 'assets/funnel/funnel8.png',
+        alt: 'Tahoe Keys real estate funnel',
+        title: 'Tahoe Keys',
+        url: 'https://join.livinthetahoedream.com/tahoe-keys'
+      },
+      {
+        type: 'image',
+        src: 'assets/funnel/funnel9.png',
+        alt: 'Equities of America funnel',
+        title: 'Equities of America',
+        url: 'https://home.equitiesofamerica.com/home'
+      },
+      {
+        type: 'image',
+        src: 'assets/funnel/funnel10.png',
+        alt: 'MTH Synergy funnel',
+        title: 'MTH Synergy',
+        url: 'https://mthsynergy.com/'
+      }
+    ];
+
+    const websiteProjects = [
+      {
+        type: 'image',
+        src: 'assets/website/website1.png',
+        alt: 'Compass MT website',
+        title: 'Compass MT',
+        url: 'https://compassmt.net/'
+      },
+      {
+        type: 'image',
+        src: 'assets/website/website10.png',
+        alt: 'DigiLign AI website',
+        title: 'DigiLign AI',
+        url: 'https://ai.digilign.com/'
+      },
+      {
+        type: 'image',
+        src: 'assets/website/website2.png',
+        alt: 'Johan Knecht CPA website',
+        title: 'Johan Knecht CPA',
+        url: 'https://johanknechtcpa.com/'
+      },
+      {
+        type: 'image',
+        src: 'assets/website/website3.png',
+        alt: 'PGC Alaska website',
+        title: 'PGC Alaska',
+        url: 'https://pgcak.com/'
+      },
+      {
+        type: 'image',
+        src: 'assets/website/website4.png',
+        alt: 'AE Outdoor Living LED website',
+        title: 'AE Outdoor Living',
+        url: 'https://aeoutdoorliving.com/ae-leds'
+      },
+      {
+        type: 'image',
+        src: 'assets/website/website5.png',
+        alt: 'Credit Brigade website',
+        title: 'Credit Brigade',
+        url: 'https://creditbrigade.com/'
+      },
+      {
+        type: 'image',
+        src: 'assets/website/website6.png',
+        alt: 'Theme Eleven home care website',
+        title: 'Theme Eleven',
+        url: 'https://themeeleven.homecaremarketing.com/'
+      },
+      {
+        type: 'image',
+        src: 'assets/website/website7.png',
+        alt: 'Sepirak website',
+        title: 'Sepirak',
+        url: 'https://www.sepirak.com/'
+      },
+      {
+        type: 'image',
+        src: 'assets/website/website8.png',
+        alt: 'Biocybernaut website',
+        title: 'Biocybernaut',
+        url: 'https://biocybernaut.com/'
+      },
+      {
+        type: 'image',
+        src: 'assets/website/website9.png',
+        alt: 'Stay Well Adjusted website',
+        title: 'Stay Well Adjusted',
+        url: 'https://staywelladjusted.com/'
+      }
+    ];
+
     const galleryData = Object.fromEntries(
       Object.entries(galleryTitles).map(([key, title]) => [
         key,
         key === 'funnels'
-          ? [{
-              type: 'image',
-              src: 'assets/funnel/funnel1.png',
-              alt: 'Excelerate Solutions lead generation funnel'
-            }]
-          : key === 'creative'
-            ? creativeVideos
-            : key === 'ghl-automation'
-              ? Array.from({length: 6}, (_, index) => ({
-                  type: 'image',
-                  src: `assets/GHL-Au/auto-${index + 1}.png`,
-                  alt: `GHL Automation screenshot ${index + 1}`
-                }))
-              : key === 'n8n-automation'
+          ? funnelProjects
+          : key === 'website'
+            ? websiteProjects
+            : key === 'creative'
+              ? creativeVideos
+              : key === 'ghl-automation'
                 ? Array.from({length: 6}, (_, index) => ({
                     type: 'image',
-                    src: `assets/N8N-Au/auto-${index + 1}.png`,
-                    alt: `N8N Automation screenshot ${index + 1}`
+                    src: `assets/GHL-Au/auto-${index + 1}.png`,
+                    alt: `GHL Automation screenshot ${index + 1}`
                   }))
-                : key === 'make-automation'
+                : key === 'n8n-automation'
                   ? Array.from({length: 6}, (_, index) => ({
                       type: 'image',
-                      src: `assets/Make-Au/auto-${index + 1}.png`,
-                      alt: `Make Automation screenshot ${index + 1}`
+                      src: `assets/N8N-Au/auto-${index + 1}.png`,
+                      alt: `N8N Automation screenshot ${index + 1}`
                     }))
-                  : Array.from({length: 9}, (_, index) => ({
-                    type: 'image',
-                    src: makeGalleryPlaceholder(title, index + 1),
-                    alt: `${title} gallery image ${index + 1}`
-                  }))
+                  : key === 'make-automation'
+                    ? Array.from({length: 6}, (_, index) => ({
+                        type: 'image',
+                        src: `assets/Make-Au/auto-${index + 1}.png`,
+                        alt: `Make Automation screenshot ${index + 1}`
+                      }))
+                    : Array.from({length: 9}, (_, index) => ({
+                      type: 'image',
+                      src: makeGalleryPlaceholder(title, index + 1),
+                      alt: `${title} gallery image ${index + 1}`
+                    }))
       ])
     );
+
+    let currentFeaturedItem = null;
 
     function showFeaturedMedia(item) {
       if (!portfolioFeatured) return;
       portfolioFeatured.innerHTML = '';
+      currentFeaturedItem = item;
+      portfolioFeatured.classList.toggle('is-clickable', Boolean(item.url));
+      portfolioFeatured.setAttribute('aria-label', item.url ? `Visit ${item.title || 'website'}` : 'Selected portfolio preview');
+      portfolioFeatured.setAttribute('role', item.url ? 'link' : 'group');
+      portfolioFeatured.tabIndex = item.url ? 0 : -1;
 
       if (item.type === 'video') {
         const iframe = document.createElement('iframe');
@@ -4190,7 +4518,11 @@
       const isCompactGallery = key === 'ghl-automation' || key === 'n8n-automation' || key === 'make-automation';
       portfolioModal.classList.toggle('is-compact-gallery', isCompactGallery);
       const featuredItem = isCreativeGallery ? items[items.length - 1] : items[0];
-      const thumbnailItems = isCreativeGallery ? items.slice(0, 9) : items;
+      const thumbnailItems = isCreativeGallery
+        ? items.slice(0, 9)
+        : key === 'website' || key === 'funnels'
+          ? items.slice(1)
+          : items;
 
       thumbnailItems.forEach((item, index) => {
         const button = document.createElement('button');
@@ -4223,6 +4555,11 @@
           event.preventDefault();
           event.stopPropagation();
 
+          if (item.url) {
+            window.location.href = item.url;
+            return;
+          }
+
           if (item.type === 'video' && item.viewUrl) {
             window.open(item.viewUrl, '_blank', 'noopener,noreferrer');
             return;
@@ -4238,6 +4575,22 @@
       portfolioModal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('modal-open');
       requestAnimationFrame(() => portfolioCloseButton && portfolioCloseButton.focus());
+    }
+
+    function openFeaturedWebsite() {
+      if (currentFeaturedItem && currentFeaturedItem.url) {
+        window.location.href = currentFeaturedItem.url;
+      }
+    }
+
+    if (portfolioFeatured) {
+      portfolioFeatured.addEventListener('click', openFeaturedWebsite);
+      portfolioFeatured.addEventListener('keydown', function(event) {
+        if ((event.key === 'Enter' || event.key === ' ') && currentFeaturedItem && currentFeaturedItem.url) {
+          event.preventDefault();
+          openFeaturedWebsite();
+        }
+      });
     }
 
     function closePortfolioGallery() {
@@ -4338,7 +4691,10 @@
       if (lastCalendarTrigger) lastCalendarTrigger.focus();
     }
 
-    if (openCalendarPopup) openCalendarPopup.addEventListener('click', function(){ showCalendarPopup(openCalendarPopup); });
+    const calendarPopupTriggers = document.querySelectorAll('#open-calendar-popup, .calendar-popup-trigger');
+    calendarPopupTriggers.forEach(function(trigger) {
+      trigger.addEventListener('click', function() { showCalendarPopup(trigger); });
+    });
     if (closeCalendarPopup) closeCalendarPopup.addEventListener('click', hideCalendarPopup);
     if (calendarPopup) calendarPopup.addEventListener('click', function(event){
       if (event.target === calendarPopup) hideCalendarPopup();
@@ -4363,6 +4719,26 @@
     if(top){ const update=()=>top.classList.toggle('show',window.scrollY>600); window.addEventListener('scroll',update,{passive:true}); update(); top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'})); }
     const year=document.getElementById('year'); if(year)year.textContent=new Date().getFullYear();
   });
+
+
+    // Social 4:5 coverflow carousel
+    (() => {
+      const root = document.querySelector('.social-carousel');
+      if (!root) return;
+      const slides = [...root.querySelectorAll('.social-slide')];
+      const dotsWrap = root.querySelector('.social-carousel-dots');
+      let active = 0, timer;
+      const dots = slides.map((_, i) => { const b=document.createElement('button'); b.type='button'; b.className='social-carousel-dot'; b.setAttribute('aria-label', `Go to image ${i+1}`); b.addEventListener('click',()=>go(i)); dotsWrap.appendChild(b); return b; });
+      function render(){ slides.forEach((slide,i)=>{ let o=i-active; if(o>slides.length/2)o-=slides.length; if(o<-slides.length/2)o+=slides.length; slide.style.setProperty('--offset',o); slide.dataset.active=String(o===0); slide.tabIndex=o===0?0:-1; }); dots.forEach((d,i)=>d.classList.toggle('active',i===active)); }
+      function go(i){ active=(i+slides.length)%slides.length; render(); restart(); }
+      function restart(){ clearInterval(timer); if(!matchMedia('(prefers-reduced-motion: reduce)').matches) timer=setInterval(()=>go(active+1),3500); }
+      root.querySelector('.social-prev').addEventListener('click',()=>go(active-1));
+      root.querySelector('.social-next').addEventListener('click',()=>go(active+1));
+      slides.forEach((s,i)=>s.addEventListener('click',()=>go(i)));
+      root.addEventListener('keydown',e=>{ if(e.key==='ArrowLeft')go(active-1); if(e.key==='ArrowRight')go(active+1); });
+      let x=0; root.addEventListener('pointerdown',e=>x=e.clientX); root.addEventListener('pointerup',e=>{ const d=e.clientX-x; if(Math.abs(d)>45)go(active+(d<0?1:-1)); });
+      render(); restart();
+    })();
   </script>
 </body>
 </html>
