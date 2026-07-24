@@ -4859,25 +4859,65 @@ nav{
 
     const form=document.getElementById('contact-form');
     const status=document.getElementById('form-status');
-    if(form){ form.addEventListener('submit', function(e){
-      e.preventDefault();
-      if(!form.checkValidity()){ if(status)status.textContent='Please complete the required fields before sending.'; form.reportValidity(); return; }
-      const data=new FormData(form);
-      const subject=encodeURIComponent('Portfolio inquiry from '+String(data.get('name')||''));
-      const body=encodeURIComponent([
-        'Name: '+String(data.get('name')||''),
-        'Email: '+String(data.get('email')||''),
-        'Business: '+String(data.get('business')||''),
-        'Phone: '+String(data.get('phone')||''),
-        'Service: '+String(data.get('service')||''),
-        'Work arrangement: '+String(data.get('work_type')||''),
-        '',
-        'Project details:',
-        String(data.get('message')||'')
-      ].join('\n'));
-      window.location.href='mailto:marjbsayao@gmail.com?subject='+subject+'&body='+body;
-      if(status)status.textContent='Your email app has been opened with the inquiry details.';
-    }); }
+    const workerUrl='https://hidden-sunset-f091.marjbsayao.workers.dev/';
+
+    if(form){
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+
+        if(!form.checkValidity()){
+          if(status) status.textContent='Please complete the required fields before sending.';
+          form.reportValidity();
+          return;
+        }
+
+        const submitButton=form.querySelector('button[type="submit"]');
+        const originalButtonText=submitButton ? submitButton.textContent : '';
+        const data=new FormData(form);
+        const payload={
+          name:String(data.get('name')||''),
+          email:String(data.get('email')||''),
+          business:String(data.get('business')||''),
+          phone:String(data.get('phone')||''),
+          service:String(data.get('service')||''),
+          work_type:String(data.get('work_type')||''),
+          message:String(data.get('message')||''),
+          source:window.location.href
+        };
+
+        try{
+          if(submitButton){
+            submitButton.disabled=true;
+            submitButton.textContent='Sending...';
+          }
+          if(status) status.textContent='Sending your inquiry...';
+
+          const response=await fetch(workerUrl,{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify(payload)
+          });
+
+          let result={};
+          try{ result=await response.json(); }catch(_error){}
+
+          if(!response.ok){
+            throw new Error(result.message || result.error || 'The inquiry could not be sent.');
+          }
+
+          form.reset();
+          if(status) status.textContent=result.message || 'Thank you! Your inquiry has been sent successfully.';
+        }catch(error){
+          console.error('Contact form submission failed:',error);
+          if(status) status.textContent=error.message || 'Something went wrong. Please try again or email marjbsayao@gmail.com.';
+        }finally{
+          if(submitButton){
+            submitButton.disabled=false;
+            submitButton.textContent=originalButtonText;
+          }
+        }
+      });
+    }
 
     const top=document.getElementById('scroll-top');
     if(top){ const update=()=>top.classList.toggle('show',window.scrollY>600); window.addEventListener('scroll',update,{passive:true}); update(); top.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'})); }
