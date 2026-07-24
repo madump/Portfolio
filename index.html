@@ -4050,6 +4050,76 @@ nav{
 #scroll-top{background:linear-gradient(145deg,#096B90,#71B7D5)!important;color:#fff!important;box-shadow:0 12px 28px rgba(9,107,144,.28)!important}
 </style>
 
+
+<style>
+/* Tools carousel readability fix */
+.tools-carousel-section {
+  background: #eef7fa !important;
+}
+.tools-carousel-heading h2 {
+  color: #042B44 !important;
+}
+.tools-carousel-heading p {
+  color: #365f72 !important;
+  opacity: 1 !important;
+}
+.tool-logo-card,
+.tool-logo-card:hover {
+  background: #ffffff !important;
+  border-color: #A1CCDC !important;
+  color: #042B44 !important;
+}
+.tool-logo-card:hover {
+  border-color: #096B90 !important;
+  box-shadow: 0 14px 34px rgba(4,43,68,.14) !important;
+}
+.tool-logo-card strong,
+.tool-logo-card:hover strong {
+  color: #042B44 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  font-weight: 700 !important;
+}
+.tool-logo-badge {
+  background: #ffffff !important;
+  border-color: #71B7D5 !important;
+}
+.tools-carousel-window::before {
+  background: linear-gradient(90deg, #eef7fa, rgba(238,247,250,0)) !important;
+}
+.tools-carousel-window::after {
+  background: linear-gradient(270deg, #eef7fa, rgba(238,247,250,0)) !important;
+}
+</style>
+
+<style>
+/* HERO ANIMATION ENHANCEMENTS */
+#hero{--mx:50%;--my:35%;position:relative;isolation:isolate;overflow:hidden}
+#hero::before{content:"";position:absolute;inset:-20%;z-index:0;background:
+radial-gradient(circle at var(--mx) var(--my),rgba(113,183,213,.24),transparent 24%),
+radial-gradient(circle at 14% 78%,rgba(9,107,144,.22),transparent 28%),
+radial-gradient(circle at 86% 20%,rgba(161,204,220,.16),transparent 26%);
+animation:heroAura 12s ease-in-out infinite alternate;pointer-events:none}
+#hero::after{content:""!important;position:absolute!important;z-index:0!important;inset:-40% -10%!important;width:auto!important;height:auto!important;transform:none!important;background:repeating-linear-gradient(115deg,transparent 0 70px,rgba(161,204,220,.035) 71px 72px)!important;animation:heroLines 18s linear infinite;pointer-events:none}
+#hero .hero-content{position:relative;z-index:2;overflow:hidden;animation:heroPanelIn .9s cubic-bezier(.2,.7,.2,1) both}
+#hero .hero-content::after{content:"";position:absolute;top:-120%;left:-30%;width:22%;height:340%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:rotate(18deg);animation:heroShine 7s ease-in-out 1.4s infinite;pointer-events:none}
+#hero .eyebrow{animation:heroFade .7s .15s both}
+#hero .hero-heading{animation:heroFade .8s .28s both}
+#hero .hero-heading span{display:inline-block;animation:accentFloat 4s ease-in-out 1.2s infinite}
+#hero .hero-copy{animation:heroFade .8s .42s both}
+#hero .hero-actions{animation:heroFade .8s .56s both}
+#hero .hero-actions .btn{position:relative;overflow:hidden}
+#hero .hero-actions .btn::after{content:"";position:absolute;inset:0;transform:translateX(-120%);background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transition:transform .6s ease}
+#hero .hero-actions .btn:hover::after{transform:translateX(120%)}
+@keyframes heroAura{0%{transform:scale(1) translate3d(0,0,0)}100%{transform:scale(1.08) translate3d(2%,-2%,0)}}
+@keyframes heroLines{to{transform:translate3d(-120px,80px,0)}}
+@keyframes heroPanelIn{from{opacity:0;transform:translateY(28px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes heroFade{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes accentFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes heroShine{0%,72%{left:-35%}100%{left:125%}}
+@media(prefers-reduced-motion:reduce){#hero::before,#hero::after,#hero .hero-content,#hero .hero-content::after,#hero .eyebrow,#hero .hero-heading,#hero .hero-heading span,#hero .hero-copy,#hero .hero-actions{animation:none!important}}
+</style>
+
 </head>
 <body>
 <nav aria-label="Main navigation" id="navbar">
@@ -4860,6 +4930,7 @@ nav{
     const form=document.getElementById('contact-form');
     const status=document.getElementById('form-status');
     const workerUrl='https://hidden-sunset-f091.marjbsayao.workers.dev/';
+    const thankYouUrl='thank-you.html';
 
     if(form){
       form.addEventListener('submit', async function(e){
@@ -4906,7 +4977,13 @@ nav{
           }
 
           form.reset();
-          if(status) status.textContent=result.message || 'Thank you! Your inquiry has been sent successfully.';
+          if(status) status.textContent=result.message || 'Thank you! Your inquiry has been sent successfully. Redirecting...';
+
+          const redirectUrl = new URL(thankYouUrl, window.location.href);
+          if(payload.name) redirectUrl.searchParams.set('name', payload.name);
+          window.setTimeout(function(){
+            window.location.assign(redirectUrl.href);
+          }, 650);
         }catch(error){
           console.error('Contact form submission failed:',error);
           if(status) status.textContent=error.message || 'Something went wrong. Please try again or email marjbsayao@gmail.com.';
@@ -4944,5 +5021,22 @@ nav{
       render(); restart();
     })();
   </script>
+
+<script>
+(() => {
+  const hero = document.getElementById('hero');
+  if (!hero || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  hero.addEventListener('pointermove', (event) => {
+    const rect = hero.getBoundingClientRect();
+    hero.style.setProperty('--mx', `${((event.clientX-rect.left)/rect.width)*100}%`);
+    hero.style.setProperty('--my', `${((event.clientY-rect.top)/rect.height)*100}%`);
+  });
+  hero.addEventListener('pointerleave', () => {
+    hero.style.setProperty('--mx','50%');
+    hero.style.setProperty('--my','35%');
+  });
+})();
+</script>
+
 </body>
 </html>
