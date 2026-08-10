@@ -213,7 +213,7 @@ nav .container {
   background: var(--dark);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.07);
 }
-.nav-logo img { width: 145px; height: auto; object-fit: contain; }
+.nav-logo img { width: 160px; height: auto; object-fit: contain; }
 .nav-links {
   display: flex;
   align-items: center;
@@ -977,7 +977,7 @@ form .btn { width: fit-content; }
   nav { top: 30px; width: calc(100% - 42px); }
   nav .container { min-height: 58px; padding: 6px; border-radius: 20px; }
   .nav-logo { min-height: 44px; padding-inline: 10px; }
-  .nav-logo img { width: 126px; }
+  .nav-logo img { width: 150px; }
   #hero { margin-top: 18px; padding: 96px 20px 24px; border-radius: 30px; }
   #hero .hero-grid { gap: 26px; }
   .hero-content { padding-inline: 2px; }
@@ -1035,7 +1035,7 @@ form .btn { width: fit-content; }
 @media (max-width: 480px) {
   .container { width: min(calc(100% - 22px), var(--container)); }
   nav { width: calc(100% - 30px); top: 25px; }
-  .nav-logo img { width: 112px; }
+  .nav-logo img { width: 142px; }
   .hamburger { width: 42px; height: 42px; }
   .mobile-menu { left: 15px; right: 15px; top: 88px; }
   #hero { width: calc(100% - 20px); padding: 91px 16px 18px; border-radius: 27px; }
@@ -1852,7 +1852,7 @@ form .btn { width: fit-content; }
 #process {
   position: relative;
   width: min(calc(100% - 48px), 1360px);
-  margin: 0 auto;
+  margin: 42px auto 0;
   padding: clamp(82px, 7vw, 112px) clamp(24px, 4.5vw, 58px);
   overflow: hidden;
   isolation: isolate;
@@ -2399,6 +2399,169 @@ form .btn { width: fit-content; }
   .process-orbit-track,
   .process-planet { animation: none !important; }
 }
+
+
+/* Mobile polish - centered layout + larger brand mark */
+@media (max-width: 760px) {
+  nav .container {
+    gap: 12px;
+  }
+
+  .nav-logo {
+    padding-inline: 12px;
+  }
+
+  /* Center the major content blocks on mobile. */
+  .hero-content,
+  .about-copy,
+  .services-intro,
+  .services-heading-wrap,
+  .services-intro-side,
+  #services .card,
+  .results-intro,
+  .results-intro-side,
+  #results .result-card,
+  #skills .skill-group,
+  .process-solar-intro,
+  .process-planet,
+  .timeline-side,
+  .timeline-content,
+  .edu-card,
+  .contact-grid > div:first-child,
+  .contact-panel,
+  .tools-carousel-heading {
+    text-align: center;
+  }
+
+  .hero-content .eyebrow,
+  .hero-content .hero-copy,
+  .about-copy .section-label,
+  .about-copy .section-heading,
+  .about-copy p,
+  .services-heading-wrap .section-label,
+  .services-heading-wrap .section-heading,
+  .services-intro-side,
+  .services-intro-side .section-sub,
+  #results .section-label,
+  #results .section-heading,
+  .results-intro-side,
+  .results-intro-side p,
+  #skills .section-label,
+  #skills .section-heading,
+  .process-solar-intro .section-label,
+  .process-solar-intro .section-heading,
+  .process-solar-intro .section-sub,
+  #experience .section-label,
+  #experience .section-heading,
+  #education .section-label,
+  #education .section-heading,
+  #contact .section-label,
+  #contact .section-heading,
+  #contact .section-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions,
+  .chips,
+  .service-flow,
+  .process-cycle-key,
+  .dashboard-focus,
+  .skill-list,
+  .contact-links {
+    justify-content: center;
+  }
+
+  .about-copy .btn,
+  #services .card .card-action,
+  #results .result-action,
+  .result-text-link,
+  .skill-group .card-action,
+  .process-planet-link,
+  .edu-card .card-action,
+  form .btn {
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .service-topline,
+  .process-planet-top,
+  .timeline-topline {
+    justify-content: center;
+  }
+
+  .process-planet-top {
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .process-planet p {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .timeline-topline {
+    align-items: center;
+  }
+
+  .timeline-item ul {
+    text-align: left;
+  }
+
+  .footer-inner {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+
+  /* Keep form controls themselves left-aligned for usability. */
+  form,
+  form label,
+  input,
+  select,
+  textarea {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  nav .container {
+    min-height: 64px;
+    padding: 7px 8px;
+  }
+
+  .nav-logo {
+    min-height: 48px;
+    padding-inline: 10px;
+  }
+
+  .nav-logo img {
+    width: 142px;
+  }
+
+  .hamburger {
+    flex: 0 0 42px;
+  }
+
+  .hero-heading,
+  .section-heading,
+  .about-copy .section-heading,
+  .process-solar-intro .section-heading {
+    text-align: center;
+  }
+
+  .process-core-inner,
+  .process-planet {
+    text-align: center;
+  }
+}
+
 </style>
 </head>
 <body>
