@@ -49,7 +49,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+html { scroll-behavior: smooth; scroll-padding-top: 124px; }
 body {
   margin: 0;
   min-width: 0;
@@ -81,7 +81,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .container { width: min(calc(100% - 40px), var(--container)); margin-inline: auto; }
 section { position: relative; padding: 96px 0; }
-section[id] { scroll-margin-top: 24px; }
+section[id] { scroll-margin-top: 124px; }
 .center { text-align: center; }
 .center .section-sub { margin-inline: auto; }
 
@@ -182,8 +182,8 @@ section[id] { scroll-margin-top: 24px; }
 
 /* Navigation visually integrated with the hero shell. */
 nav {
-  position: absolute;
-  z-index: 1000;
+  position: fixed;
+  z-index: 4000;
   top: 48px;
   left: 50%;
   width: min(calc(100% - 104px), 1240px);
@@ -1035,6 +1035,8 @@ form .btn { width: fit-content; }
 }
 
 @media (max-width: 760px) {
+  html { scroll-padding-top: 104px; }
+  section[id] { scroll-margin-top: 104px; }
   .container { width: min(calc(100% - 28px), var(--container)); }
   section { padding: 72px 0; }
   nav { top: 30px; width: calc(100% - 42px); }
@@ -3626,6 +3628,41 @@ form .btn { width: fit-content; }
 
   .filters {
     justify-content: center;
+  }
+}
+
+
+
+/* Sticky navigation: flush to the very top of the viewport. */
+nav {
+  top: 0 !important;
+}
+
+nav .container {
+  border-radius: 0 0 22px 22px;
+}
+
+@media (max-width: 760px) {
+  nav {
+    top: 0 !important;
+  }
+
+  nav .container {
+    border-radius: 0 0 20px 20px;
+  }
+
+  .mobile-menu {
+    top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    top: 0 !important;
+  }
+
+  .mobile-menu {
+    top: 66px;
   }
 }
 
