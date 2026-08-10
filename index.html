@@ -1118,6 +1118,362 @@ form .btn { width: fit-content; }
   .hero-dashboard-card { min-height: 94px; }
 }
 
+
+
+/* Services redesign — asymmetric editorial bento + interactive motion */
+#services {
+  position: relative;
+  width: min(calc(100% - 48px), 1360px);
+  margin: 0 auto;
+  padding: clamp(78px, 7vw, 108px) clamp(26px, 4.6vw, 58px);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.78);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 6% 14%, rgba(170,166,255,.22), transparent 29rem),
+    radial-gradient(circle at 93% 88%, rgba(119,199,222,.14), transparent 25rem),
+    linear-gradient(135deg, #fbfbff 0%, #f5f5fc 54%, #eff6f9 100%);
+  box-shadow: 0 28px 75px rgba(34,35,76,.075), inset 0 1px 0 rgba(255,255,255,.92);
+}
+#services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .42;
+  background-image:
+    linear-gradient(rgba(98,90,232,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(98,90,232,.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.35), transparent 55%);
+}
+#services::after {
+  content: "";
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  right: -245px;
+  top: -210px;
+  border: 1px solid rgba(98,90,232,.10);
+  border-radius: 50%;
+  box-shadow: inset 0 0 80px rgba(98,90,232,.035);
+  pointer-events: none;
+}
+#services > .container { position: relative; z-index: 1; }
+.services-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(290px, .62fr);
+  gap: 48px;
+  align-items: end;
+}
+.services-heading-wrap .section-heading {
+  max-width: 760px;
+  margin-bottom: 0;
+}
+.services-intro-side {
+  max-width: 470px;
+  justify-self: end;
+  padding-bottom: 8px;
+}
+.services-intro-side .section-sub {
+  max-width: 460px;
+  font-size: 15px;
+  line-height: 1.72;
+}
+.service-flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 22px;
+  color: #696879;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.service-flow span {
+  padding: 7px 10px;
+  border: 1px solid rgba(98,90,232,.11);
+  border-radius: 999px;
+  background: rgba(255,255,255,.7);
+  box-shadow: 0 8px 18px rgba(55,52,122,.045);
+}
+.service-flow i {
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(98,90,232,.15), rgba(98,90,232,.65));
+  position: relative;
+}
+.service-flow i::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-top: 1px solid rgba(98,90,232,.72);
+  border-right: 1px solid rgba(98,90,232,.72);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+#services .card-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 54px;
+  align-items: stretch;
+}
+#services .card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --spot-x: 50%;
+  --spot-y: 50%;
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(26px, 2.5vw, 34px);
+  overflow: hidden;
+  border: 1px solid rgba(58,57,93,.10);
+  border-radius: 30px;
+  background: rgba(255,255,255,.84);
+  box-shadow: 0 14px 38px rgba(34,35,76,.065), inset 0 1px 0 rgba(255,255,255,.88);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform .36s cubic-bezier(.2,.75,.2,1), box-shadow .34s ease, border-color .34s ease;
+}
+#services .card::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -1px;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(390px circle at var(--spot-x) var(--spot-y), rgba(98,90,232,.17), transparent 43%);
+  transition: opacity .28s ease;
+}
+#services .card::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 190px;
+  height: 190px;
+  right: -86px;
+  top: -96px;
+  border: 1px solid rgba(98,90,232,.10);
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 34%, rgba(170,166,255,.13), transparent 58%);
+  transition: transform .48s cubic-bezier(.2,.75,.2,1), opacity .3s ease;
+}
+#services .card > * { position: relative; z-index: 2; }
+#services .card:nth-child(1) { grid-column: span 7; min-height: 350px; }
+#services .card:nth-child(2) {
+  grid-column: span 5;
+  min-height: 350px;
+  color: #fff;
+  border-color: rgba(255,255,255,.09);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(119,199,222,.14), transparent 34%),
+    linear-gradient(145deg, #151524, #21213a 72%, #19192d);
+  box-shadow: 0 20px 46px rgba(17,17,28,.17), inset 0 1px 0 rgba(255,255,255,.05);
+}
+#services .card:nth-child(2)::before { background: radial-gradient(390px circle at var(--spot-x) var(--spot-y), rgba(170,166,255,.20), transparent 45%); }
+#services .card:nth-child(2)::after { border-color: rgba(170,166,255,.14); background: radial-gradient(circle at 34% 34%, rgba(170,166,255,.12), transparent 60%); }
+#services .card:nth-child(3) {
+  grid-column: span 5;
+  background: linear-gradient(145deg, rgba(255,255,255,.90), rgba(241,242,255,.84));
+}
+#services .card:nth-child(4) {
+  grid-column: span 7;
+  background: linear-gradient(135deg, #eeedff 0%, rgba(255,255,255,.92) 66%, #edf7fa 100%);
+}
+#services .card:nth-child(5) { grid-column: span 4; min-height: 290px; }
+#services .card:nth-child(6) {
+  grid-column: span 8;
+  min-height: 290px;
+  background: linear-gradient(118deg, #efeeff 0%, rgba(255,255,255,.92) 54%, #eaf6f8 100%);
+}
+#services .card:hover {
+  border-color: rgba(98,90,232,.22);
+  box-shadow: 0 28px 66px rgba(34,35,76,.13), inset 0 1px 0 rgba(255,255,255,.92);
+}
+#services .card:hover::before { opacity: 1; }
+#services .card:hover::after { transform: translate(-12px, 12px) scale(1.12); }
+#services .card.fade-up {
+  opacity: 0;
+  transform: translateY(22px) scale(.985);
+  transition: opacity .58s ease, transform .58s cubic-bezier(.2,.75,.2,1), box-shadow .34s ease, border-color .34s ease;
+}
+#services .card.fade-up.visible {
+  opacity: 1;
+  transform: perspective(950px) rotateX(var(--rx)) rotateY(var(--ry));
+}
+#services .card.fade-up.visible:hover {
+  transform: perspective(950px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(-8px) scale(1.006);
+}
+.service-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+#services .card .icon {
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  border: 1px solid rgba(98,90,232,.14);
+  border-radius: 14px;
+  background: rgba(238,237,255,.88);
+  color: #5e56d8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.88), 0 8px 20px rgba(98,90,232,.08);
+}
+#services .card:nth-child(2) .icon {
+  border-color: rgba(170,166,255,.22);
+  background: rgba(170,166,255,.10);
+  color: #d1ceff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+.service-kicker {
+  max-width: 68%;
+  padding: 7px 10px;
+  border: 1px solid rgba(98,90,232,.10);
+  border-radius: 999px;
+  background: rgba(255,255,255,.58);
+  color: #6a687b;
+  font-size: 9.5px;
+  font-weight: 750;
+  letter-spacing: .075em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform .26s ease, background-color .26s ease, border-color .26s ease;
+}
+#services .card:nth-child(2) .service-kicker {
+  border-color: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.045);
+  color: #aaa8c1;
+}
+.service-content {
+  max-width: 650px;
+  margin-top: auto;
+  padding-top: clamp(44px, 5.5vw, 76px);
+}
+#services .card:nth-child(5) .service-content { padding-top: 38px; }
+#services .card h3 {
+  max-width: 610px;
+  margin: 0 0 13px;
+  color: var(--ink);
+  font-size: clamp(22px, 2.15vw, 30px);
+  line-height: 1.12;
+  letter-spacing: -.04em;
+}
+#services .card:nth-child(5) h3 { font-size: clamp(20px, 1.7vw, 24px); }
+#services .card:nth-child(2) h3 { color: #fff; }
+#services .card p {
+  max-width: 610px;
+  margin: 0;
+  color: #737384;
+  font-size: 13px;
+  line-height: 1.62;
+}
+#services .card:nth-child(2) p { color: #b7b7c7; }
+#services .card .card-action {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #5851c1;
+  font-size: 11px;
+  font-weight: 780;
+  letter-spacing: .01em;
+  box-shadow: none;
+  transition: color .2s ease;
+}
+#services .card .card-action span {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 29px;
+  border: 1px solid rgba(98,90,232,.13);
+  border-radius: 50%;
+  background: rgba(98,90,232,.08);
+  transition: transform .26s cubic-bezier(.2,.75,.2,1), background-color .2s ease;
+}
+#services .card:nth-child(2) .card-action { color: #d9d7ff; }
+#services .card:nth-child(2) .card-action span { border-color: rgba(255,255,255,.10); background: rgba(255,255,255,.07); }
+#services .card .card-action:hover { transform: none; background: transparent; border-color: transparent; color: var(--purple); }
+#services .card:nth-child(2) .card-action:hover { color: #fff; }
+#services .card:hover .card-action span { transform: translate(3px, -3px); background: rgba(98,90,232,.13); }
+#services .card:nth-child(2):hover .card-action span { background: rgba(255,255,255,.11); }
+#services .card:hover .service-kicker { transform: translateY(-2px); border-color: rgba(98,90,232,.18); background: rgba(255,255,255,.78); }
+#services .card:nth-child(2):hover .service-kicker { border-color: rgba(170,166,255,.18); background: rgba(255,255,255,.07); }
+#services .card:hover .icon { animation: serviceIconFloat 1.55s ease-in-out infinite; }
+@keyframes serviceIconFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(-3deg); }
+}
+
+@media (max-width: 980px) {
+  #services { width: min(calc(100% - 32px), 1360px); padding-inline: 28px; border-radius: 34px; }
+  .services-intro { grid-template-columns: 1fr; gap: 20px; }
+  .services-intro-side { max-width: 680px; justify-self: start; padding-bottom: 0; }
+  #services .card-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin-top: 42px; }
+  #services .card,
+  #services .card:nth-child(1),
+  #services .card:nth-child(2),
+  #services .card:nth-child(3),
+  #services .card:nth-child(4),
+  #services .card:nth-child(5),
+  #services .card:nth-child(6) { grid-column: auto; min-height: 310px; }
+  #services .card:nth-child(6) { grid-column: 1 / -1; min-height: 270px; }
+  .service-content { padding-top: 46px; }
+}
+
+@media (max-width: 760px) {
+  #services { width: calc(100% - 28px); padding: 72px 18px; border-radius: 30px; }
+  #services::after { width: 300px; height: 300px; right: -190px; top: -150px; }
+  .service-flow { gap: 7px; }
+  .service-flow i { width: 18px; }
+  #services .card-grid { grid-template-columns: 1fr; gap: 13px; margin-top: 36px; }
+  #services .card,
+  #services .card:nth-child(1),
+  #services .card:nth-child(2),
+  #services .card:nth-child(3),
+  #services .card:nth-child(4),
+  #services .card:nth-child(5),
+  #services .card:nth-child(6) { grid-column: 1; min-height: 0; padding: 24px; border-radius: 24px; }
+  .service-content, #services .card:nth-child(5) .service-content { padding-top: 40px; }
+  #services .card h3, #services .card:nth-child(5) h3 { font-size: clamp(21px, 6vw, 27px); }
+  #services .card p { font-size: 12.5px; }
+}
+
+@media (max-width: 480px) {
+  #services { width: calc(100% - 20px); padding: 62px 13px; border-radius: 27px; }
+  .services-intro { gap: 16px; }
+  .service-flow { align-items: flex-start; }
+  .service-flow i { display: none; }
+  #services .card { padding: 21px; border-radius: 22px; }
+  .service-kicker { max-width: 66%; font-size: 8.5px; }
+  .service-content, #services .card:nth-child(5) .service-content { padding-top: 34px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .001ms !important; }
@@ -1204,14 +1560,23 @@ form .btn { width: fit-content; }
 </section>
 <section id="services">
 <div class="container">
-<div class="center fade-up"><span class="section-label">Services</span><h2 class="section-heading">Digital systems designed to make growth easier to manage.</h2><p class="section-sub">From funnel strategy and CRM setup to content production, each service supports a clearer and more efficient customer journey.</p></div>
+<div class="services-intro">
+<div class="services-heading-wrap fade-up">
+<span class="section-label">Services</span>
+<h2 class="section-heading">Digital systems designed to make growth easier to manage.</h2>
+</div>
+<div class="services-intro-side fade-up">
+<p class="section-sub">From funnel strategy and CRM setup to content production, each service supports a clearer and more efficient customer journey.</p>
+<div class="service-flow" aria-label="Typical engagement flow"><span>Strategy</span><i aria-hidden="true"></i><span>Build</span><i aria-hidden="true"></i><span>Automate</span></div>
+</div>
+</div>
 <div class="card-grid">
-<article class="card fade-up tech-card"><div class="icon">01</div><h3>GoHighLevel Setup &amp; CRM</h3><p>Account setup, pipelines, forms, surveys, calendars, triggers, campaigns, custom fields, and domain configuration.</p><a class="card-action" data-service="GoHighLevel Setup" href="#contact">Configure My System <span>↗</span></a></article>
-<article class="card fade-up tech-card"><div class="icon">02</div><h3>Funnels, Landing Pages &amp; Websites</h3><p>Responsive, conversion-focused pages built for lead generation, appointments, campaigns, and service businesses.</p><a class="card-action" data-service="Sales Funnel" href="#contact">Build My Funnel <span>↗</span></a></article>
-<article class="card fade-up tech-card"><div class="icon">03</div><h3>Workflow &amp; Marketing Automation</h3><p>Lead nurturing, appointment booking, follow-up, routing, internal notifications, and lifecycle automation.</p><a class="card-action" data-service="CRM Automation" href="#contact">Automate My Workflow <span>↗</span></a></article>
-<article class="card fade-up tech-card"><div class="icon">04</div><h3>AI Chatbots &amp; Integrations</h3><p>AI chatbot configuration plus API, webhook, data mapping, filtering, testing, and troubleshooting.</p><a class="card-action" data-service="Zapier / API Integration" href="#contact">Connect My Tools <span>↗</span></a></article>
-<article class="card fade-up tech-card"><div class="icon">05</div><h3>Social Media Management</h3><p>Content planning, scheduling, copywriting, community management, and campaigns for major social platforms.</p><a class="card-action" data-service="Website Development" href="#contact">Launch My Website <span>↗</span></a></article>
-<article class="card fade-up tech-card"><div class="icon">06</div><h3>Graphic &amp; Video Editing</h3><p>Canva marketing materials, email campaign design, CapCut editing, and short-form or long-form video content.</p><a class="card-action" data-service="Graphic or Video Content" href="#contact">Create My Content <span>↗</span></a></article>
+<article class="card fade-up tech-card"><div class="service-topline"><div class="icon">01</div><span class="service-kicker">CRM infrastructure</span></div><div class="service-content"><h3>GoHighLevel Setup &amp; CRM</h3><p>Account setup, pipelines, forms, surveys, calendars, triggers, campaigns, custom fields, and domain configuration.</p></div><a class="card-action" data-service="GoHighLevel Setup" href="#contact">Build My CRM <span>↗</span></a></article>
+<article class="card fade-up tech-card"><div class="service-topline"><div class="icon">02</div><span class="service-kicker">Conversion design</span></div><div class="service-content"><h3>Funnels, Landing Pages &amp; Websites</h3><p>Responsive, conversion-focused pages built for lead generation, appointments, campaigns, and service businesses.</p></div><a class="card-action" data-service="Sales Funnel" href="#contact">Build My Funnel <span>↗</span></a></article>
+<article class="card fade-up tech-card"><div class="service-topline"><div class="icon">03</div><span class="service-kicker">Lifecycle automation</span></div><div class="service-content"><h3>Workflow &amp; Marketing Automation</h3><p>Lead nurturing, appointment booking, follow-up, routing, internal notifications, and lifecycle automation.</p></div><a class="card-action" data-service="CRM Automation" href="#contact">Automate My Workflow <span>↗</span></a></article>
+<article class="card fade-up tech-card"><div class="service-topline"><div class="icon">04</div><span class="service-kicker">AI + integrations</span></div><div class="service-content"><h3>AI Chatbots &amp; Integrations</h3><p>AI chatbot configuration plus API, webhook, data mapping, filtering, testing, and troubleshooting.</p></div><a class="card-action" data-service="Zapier / API Integration" href="#contact">Connect My Stack <span>↗</span></a></article>
+<article class="card fade-up tech-card"><div class="service-topline"><div class="icon">05</div><span class="service-kicker">Content operations</span></div><div class="service-content"><h3>Social Media Management</h3><p>Content planning, scheduling, copywriting, community management, and campaigns for major social platforms.</p></div><a class="card-action" data-service="Social Media Management" href="#contact">Manage My Socials <span>↗</span></a></article>
+<article class="card fade-up tech-card"><div class="service-topline"><div class="icon">06</div><span class="service-kicker">Creative production</span></div><div class="service-content"><h3>Graphic &amp; Video Editing</h3><p>Canva marketing materials, email campaign design, CapCut editing, and short-form or long-form video content.</p></div><a class="card-action" data-service="Graphic or Video Content" href="#contact">Create My Content <span>↗</span></a></article>
 </div>
 </div>
 </section>
@@ -1324,7 +1689,7 @@ form .btn { width: fit-content; }
 <form id="contact-form" novalidate="">
 <div class="form-row"><div><label for="name">Full Name</label><input id="name" name="name" required=""/></div><div><label for="email">Email Address</label><input id="email" name="email" required="" type="email"/></div></div>
 <div class="form-row"><div><label for="business">Business Name</label><input id="business" name="business"/></div><div><label for="phone">Phone Number <span style="font-weight:400;color:var(--muted)">(Optional)</span></label><input id="phone" name="phone" placeholder="+63 900 000 0000" type="tel"/></div></div>
-<div><label for="service">Service Needed</label><select id="service" name="service" required=""><option value="">Select a service</option><option>GoHighLevel Setup</option><option>Sales Funnel</option><option>CRM Automation</option><option>Zapier / API Integration</option><option>Website Development</option><option>Graphic or Video Content</option></select></div>
+<div><label for="service">Service Needed</label><select id="service" name="service" required=""><option value="">Select a service</option><option>GoHighLevel Setup</option><option>Sales Funnel</option><option>CRM Automation</option><option>Zapier / API Integration</option><option>Website Development</option><option>Social Media Management</option><option>Graphic or Video Content</option></select></div>
 <div><label for="work-type">Preferred Work Arrangement</label><select id="work-type" name="work_type" required=""><option disabled="" selected="" value="">Select a work arrangement</option><option value="Gig">Gig</option><option value="Part-Time">Part-Time</option><option value="Full-Time">Full-Time</option><option value="Project-Based">Project-Based</option></select></div>
 <div><label for="message">Project Details</label><textarea id="message" name="message" placeholder="Tell me about your goals, tools, timeline, and current challenges." required=""></textarea></div>
 <button class="btn btn-primary" type="submit">Send Project Inquiry</button><div aria-live="polite" class="form-status" id="form-status"></div>
@@ -1433,8 +1798,24 @@ form .btn { width: fit-content; }
     }));
 
     document.querySelectorAll('.hero-card,.card,.result-card,.project-card,.skill-group,.edu-card').forEach(card=>{
-      card.addEventListener('mousemove',e=>{ if(window.innerWidth<900)return; const r=card.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-.5; const y=(e.clientY-r.top)/r.height-.5; card.style.setProperty('--rx',(-y*2)+'deg'); card.style.setProperty('--ry',(x*2)+'deg'); });
-      card.addEventListener('mouseleave',()=>{card.style.removeProperty('--rx');card.style.removeProperty('--ry');});
+      card.addEventListener('mousemove',e=>{
+        if(window.innerWidth<900)return;
+        const r=card.getBoundingClientRect();
+        const px=(e.clientX-r.left)/r.width;
+        const py=(e.clientY-r.top)/r.height;
+        const x=px-.5;
+        const y=py-.5;
+        card.style.setProperty('--rx',(-y*2.6)+'deg');
+        card.style.setProperty('--ry',(x*2.6)+'deg');
+        card.style.setProperty('--spot-x',(px*100)+'%');
+        card.style.setProperty('--spot-y',(py*100)+'%');
+      });
+      card.addEventListener('mouseleave',()=>{
+        card.style.removeProperty('--rx');
+        card.style.removeProperty('--ry');
+        card.style.removeProperty('--spot-x');
+        card.style.removeProperty('--spot-y');
+      });
     });
 
 
