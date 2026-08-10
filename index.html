@@ -2749,23 +2749,6 @@ form .btn { width: fit-content; }
 #hero .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; }
 #hero .btn-outline { background: rgba(255,255,255,.72); backdrop-filter: blur(10px); }
 
-.hero-plus {
-  position: absolute;
-  z-index: 8;
-  top: 96px;
-  right: clamp(28px, 4vw, 56px);
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255,255,255,.55);
-  border-radius: 50%;
-  background: linear-gradient(145deg, #756cef, #5e56df);
-  color: #fff;
-  box-shadow: 0 14px 30px rgba(98,90,232,.24), inset 0 1px 0 rgba(255,255,255,.30);
-  font-size: 20px;
-  font-weight: 400;
-}
 
 #hero .hero-visual-suite {
   position: relative;
@@ -3157,7 +3140,6 @@ form .btn { width: fit-content; }
   #hero .hero-dashboard-rail .hero-dash-module:nth-child(4),
   #hero .hero-dashboard-rail .hero-dash-module:nth-child(5) { display: none; }
   #hero .hero-focus-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hero-plus { top: 92px; right: 30px; }
   .cube-funnel { left: 12%; }
   .cube-crm { right: 24%; }
   .cube-automation { left: 7%; }
@@ -3178,7 +3160,6 @@ form .btn { width: fit-content; }
   .hero-dash-module { padding: 11px; }
   #hero .hero-focus-grid { gap: 8px; margin-top: 16px; }
   .hero-focus-card { min-height: 78px; padding: 13px; border-radius: 17px; }
-  .hero-plus { width: 38px; height: 38px; top: 91px; right: 20px; }
 }
 
 @media (max-width: 560px) {
@@ -3197,7 +3178,6 @@ form .btn { width: fit-content; }
   #hero .hero-focus-grid { grid-template-columns: 1fr 1fr; }
   .hero-focus-card { align-items: flex-start; flex-direction: column; min-height: 92px; }
   .hero-focus-card > b { align-self: flex-start; }
-  .hero-plus { top: 86px; right: 16px; }
 }
 
 /* Final hero alignment: same outer width, balanced modules, non-redundant hierarchy */
@@ -3244,6 +3224,411 @@ form .btn { width: fit-content; }
   .solution-cube { animation: none; }
 }
 
+
+/* =========================================================
+   FINAL MOBILE LAYOUT FIX
+   - centers mobile content
+   - removes negative hero offsets that caused overlaps
+   - keeps the visual composition contained on small screens
+   ========================================================= */
+@media (max-width: 760px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #hero {
+    width: calc(100% - 20px);
+    padding: 100px 18px 28px;
+  }
+
+  #hero .hero-grid {
+    grid-template-columns: 1fr;
+    row-gap: 22px;
+  }
+
+  #hero .hero-content {
+    width: 100%;
+    max-width: 620px;
+    margin-inline: auto;
+    padding: 10px 0 2px;
+    text-align: center;
+  }
+
+  #hero .eyebrow {
+    max-width: 100%;
+    justify-content: center;
+    margin: 0 auto 18px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  #hero .hero-heading {
+    max-width: 590px;
+    margin: 0 auto 18px;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  #hero .hero-copy {
+    max-width: 540px;
+    margin: 0 auto 24px;
+    text-align: center;
+  }
+
+  #hero .hero-actions {
+    width: min(100%, 360px);
+    margin-inline: auto;
+    justify-content: center;
+  }
+
+  #hero .hero-actions .btn {
+    width: 100%;
+  }
+
+  /* The old mobile rules scaled the entire visual and used negative
+     side/bottom margins. Keeping it at natural scale prevents overlap. */
+  #hero .hero-visual-suite {
+    width: 100%;
+    max-width: 520px;
+    min-height: 390px;
+    margin: 8px auto 0;
+    transform: none;
+    transform-origin: center;
+  }
+
+  #hero .hero-visual-suite::before {
+    width: min(92vw, 430px);
+    height: 280px;
+    bottom: 18px;
+  }
+
+  .solution-cube {
+    width: 84px;
+    height: 84px;
+    padding: 12px 10px 10px;
+    border-radius: 22px;
+    animation: none;
+  }
+
+  .solution-cube .cube-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  .solution-cube .cube-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .solution-cube b {
+    font-size: 7.5px;
+  }
+
+  .cube-funnel {
+    left: 7%;
+    top: 28px;
+  }
+
+  .cube-crm {
+    right: 8%;
+    top: 8px;
+  }
+
+  .cube-automation {
+    left: 4%;
+    top: 142px;
+    width: 78px;
+    height: 78px;
+  }
+
+  .cube-design {
+    right: 4%;
+    top: 132px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .hero-pedestal {
+    bottom: 0;
+    transform: translateX(-50%) scale(.76);
+    transform-origin: bottom center;
+  }
+
+  .orb-a {
+    right: 5%;
+    bottom: 58px;
+  }
+
+  .orb-b {
+    left: 7%;
+    bottom: 92px;
+  }
+
+  #hero .hero-dashboard-rail {
+    width: 100%;
+    margin-top: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 8px;
+  }
+
+  #hero .hero-dashboard-rail .hero-dash-overview {
+    grid-column: 1 / -1;
+  }
+
+  #hero .hero-dashboard-rail .hero-dash-module {
+    display: flex;
+    min-width: 0;
+  }
+
+  #hero .hero-focus-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    margin-top: 14px;
+  }
+
+  .hero-focus-card {
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-focus-card > b {
+    flex: 0 0 auto;
+  }
+
+  /* Center the rest of the mobile page while keeping form fields readable. */
+  .services-intro-side,
+  .results-intro-side {
+    justify-self: center;
+  }
+
+  .service-flow,
+  .results-proof-line,
+  .filters,
+  .process-cycle-key,
+  .chips,
+  .skill-list,
+  .social-links,
+  .footer-social-links {
+    justify-content: center;
+  }
+
+  .service-topline {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-kicker {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .project-body {
+    text-align: center;
+  }
+
+  .project-body .tag,
+  .project-body .card-action,
+  .project-body .btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-copy .btn,
+  #services .card .card-action,
+  #results .result-action,
+  .result-text-link,
+  .skill-group .card-action,
+  .process-planet-link,
+  .edu-card .card-action,
+  form .btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mobile-menu {
+    text-align: center;
+  }
+
+  .mobile-menu .btn {
+    width: 100%;
+  }
+
+  .timeline-date {
+    margin-inline: auto;
+  }
+
+  .timeline-years,
+  .timeline-side-copy,
+  .footer-copyright {
+    text-align: center;
+  }
+
+  .footer-inner {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-social-links {
+    margin-left: 0;
+  }
+
+  form,
+  form label,
+  input,
+  select,
+  textarea {
+    text-align: left;
+  }
+}
+
+@media (max-width: 560px) {
+  #hero {
+    width: calc(100% - 16px);
+    padding: 94px 14px 22px;
+    border-radius: 26px;
+  }
+
+  #hero .eyebrow {
+    width: fit-content;
+    max-width: 100%;
+    padding-inline: 11px;
+    font-size: 9.5px;
+    line-height: 1.35;
+  }
+
+  #hero .hero-heading {
+    max-width: 430px;
+    font-size: clamp(37px, 11.5vw, 48px);
+    line-height: 1.02;
+  }
+
+  #hero .hero-copy {
+    max-width: 430px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  #hero .hero-visual-suite {
+    max-width: 390px;
+    min-height: 350px;
+    margin: 6px auto 0;
+    transform: none;
+  }
+
+  .solution-cube {
+    width: 72px;
+    height: 72px;
+    padding: 10px 8px 8px;
+    border-radius: 19px;
+  }
+
+  .solution-cube .cube-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+  }
+
+  .solution-cube .cube-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .solution-cube b {
+    font-size: 6.5px;
+    letter-spacing: .055em;
+  }
+
+  .cube-funnel {
+    left: 4%;
+    top: 30px;
+  }
+
+  .cube-crm {
+    right: 4%;
+    top: 8px;
+  }
+
+  .cube-automation {
+    left: 6%;
+    top: 124px;
+    width: 68px;
+    height: 68px;
+  }
+
+  .cube-design {
+    right: 6%;
+    top: 118px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .hero-pedestal {
+    bottom: 0;
+    transform: translateX(-50%) scale(.62);
+    transform-origin: bottom center;
+  }
+
+  #hero .hero-dashboard-rail {
+    margin-top: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #hero .hero-dashboard-rail .hero-dash-overview {
+    height: auto;
+    min-height: 92px;
+  }
+
+  #hero .hero-dashboard-rail .hero-dash-module {
+    height: auto;
+    min-height: 100px;
+  }
+
+  #hero .hero-focus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-focus-card {
+    min-height: 82px;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .social-slide {
+    width: min(78vw, 270px);
+    transform: translate(-50%, -50%) translateX(calc(var(--offset) * 92vw)) scale(.84);
+  }
+
+  .social-slide[data-active="true"] {
+    transform: translate(-50%, -50%) translateX(0) scale(1);
+  }
+}
+
+@media (max-width: 420px) {
+  #hero .hero-dashboard-rail {
+    grid-template-columns: 1fr;
+  }
+
+  #hero .hero-dashboard-rail .hero-dash-overview {
+    grid-column: 1;
+  }
+
+  .hero-dash-overview {
+    grid-template-columns: 50px minmax(0, 1fr);
+  }
+
+  .filters {
+    justify-content: center;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -3270,7 +3655,6 @@ form .btn { width: fit-content; }
 </div>
 <main>
 <section id="hero">
-<div class="hero-plus" aria-hidden="true">+</div>
 <div class="container hero-grid">
 <div class="hero-content fade-up">
 <div class="eyebrow">Funnels · CRM · Automation · Graphic Design</div>
