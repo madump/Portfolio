@@ -514,6 +514,13 @@ nav .container {
 /* About */
 #about { padding-top: 108px; }
 .about-grid { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); gap: 28px; align-items: stretch; }
+/* Force-remove the decorative overlay from the About photo. */
+.about-photo::before,
+.about-photo::after {
+  content: none !important;
+  display: none !important;
+}
+
 .about-photo {
   position: relative;
   min-height: 610px;
@@ -523,19 +530,6 @@ nav .container {
   border-radius: 34px;
   background: linear-gradient(145deg, #e8e6ff, #f3f7fc 46%, #e8f4f8);
   box-shadow: var(--shadow-soft);
-}
-.about-photo::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  width: 120px;
-  height: 120px;
-  right: 18px;
-  top: 18px;
-  border-radius: 30px;
-  background: linear-gradient(145deg, rgba(255,255,255,.65), rgba(170,166,255,.18));
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.68);
-  backdrop-filter: blur(10px);
 }
 .about-photo img { width: 100%; height: 100%; min-height: 582px; border-radius: 24px; object-fit: cover; object-position: center 18%; }
 .about-photo-placeholder { min-height: 582px; place-items: center; padding: 30px; border-radius: 24px; background: var(--surface-soft); color: var(--muted); text-align: center; }
