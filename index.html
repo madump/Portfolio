@@ -831,6 +831,69 @@ form .btn { width: fit-content; }
 .contact-links { position: relative; display: grid; gap: 9px; margin: 24px 0; }
 .contact-links a { padding: 12px 13px; overflow-wrap: anywhere; border: 1px solid rgba(255,255,255,.10); border-radius: 14px; background: rgba(255,255,255,.045); color: #eeeeF7; font-size: 13px; transition: background-color .2s ease, border-color .2s ease; }
 .contact-links a:hover { background: rgba(255,255,255,.075); border-color: rgba(170,166,255,.20); }
+
+
+/* Social media links */
+.social-links {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 24px;
+}
+
+.social-link {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,.055);
+  color: #f4f4fb;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+  transition: transform .22s ease, background-color .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.social-link svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  border-color: rgba(170,166,255,.34);
+  background: rgba(98,90,232,.18);
+  box-shadow: 0 10px 24px rgba(0,0,0,.16);
+}
+
+.social-link:focus-visible {
+  outline: 3px solid rgba(170,166,255,.45);
+  outline-offset: 3px;
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.footer-social-links .social-link {
+  width: 38px;
+  height: 38px;
+  flex-basis: 38px;
+  border-radius: 12px;
+}
+
+.footer-social-links .social-link svg {
+  width: 17px;
+  height: 17px;
+}
 .calendar-booking-button { position: relative; width: 100%; margin-top: 20px; }
 .calendar-booking-button .btn { width: 100%; }
 
@@ -2516,6 +2579,15 @@ form .btn { width: fit-content; }
     text-align: center;
   }
 
+  .social-links,
+  .footer-social-links {
+    justify-content: center;
+  }
+
+  .footer-social-links {
+    margin-left: 0;
+  }
+
   .footer-logo {
     justify-content: center;
   }
@@ -2887,6 +2959,20 @@ form .btn { width: fit-content; }
 </form>
 </div>
 <aside class="contact-panel"><h3>Direct Contact</h3><p>Reach out directly or review more of my work through the links below.</p><div class="contact-links"><a href="mailto:marjbsayao@gmail.com">marjbsayao@gmail.com</a><a href="tel:+639501338976">+63 950 133 8976</a><a href="https://msa.kodehub.space" rel="noopener" target="_blank">Portfolio Website</a><a href="https://msa.kodehub.space" rel="noopener" target="_blank">View Online Portfolio</a></div>
+<div class="social-links" aria-label="Social media links">
+<a class="social-link" href="https://www.facebook.com/thisismarj.thone" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.8l.42-3.27H13.5V8.64c0-.95.26-1.6 1.63-1.6H16.9V4.12a23.7 23.7 0 0 0-2.53-.13c-2.5 0-4.21 1.52-4.21 4.32v2.42H7.33V14h2.83v8h3.34Z"/></svg>
+</a>
+<a class="social-link" href="https://www.instagram.com/_m_ttyyy?igsh=MWhjeG50Y3FkaWdwbg%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6a5.2 5.2 0 0 1-5.2 5.2H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm-.18 2A3.02 3.02 0 0 0 4 7.02v9.96A3.02 3.02 0 0 0 7.02 20h9.96A3.02 3.02 0 0 0 20 16.98V7.02A3.02 3.02 0 0 0 16.98 4H7.02ZM17.3 5.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+</a>
+<a class="social-link" href="https://wa.me/639501338976" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.45 14.88L2.12 22l5.25-1.38A9.98 9.98 0 0 0 12.04 22 9.96 9.96 0 0 0 22 12.04 9.96 9.96 0 0 0 12.04 2Zm0 18.18a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.15 8.15 0 1 1 6.97 3.86Zm4.47-6.1c-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.39-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>
+</a>
+<a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.34 3.5A1.84 1.84 0 1 1 5.33 7.2a1.84 1.84 0 0 1 .01-3.69ZM3.76 8.6h3.16V19.5H3.76V8.6Zm5.15 0h3.03v1.49h.04c.42-.8 1.45-1.65 2.99-1.65 3.2 0 3.79 2.1 3.79 4.84v6.22H15.6v-5.52c0-1.32-.02-3.01-1.84-3.01-1.84 0-2.12 1.44-2.12 2.92v5.61H8.91V8.6Z"/></svg>
+</a>
+</div>
 <!-- Calendar booking button: opens the same styled modal used in the hero -->
 <div class="calendar-booking-button">
 <button aria-controls="calendar-popup" aria-haspopup="dialog" class="btn btn-primary calendar-popup-trigger" type="button">
@@ -2949,6 +3035,20 @@ form .btn { width: fit-content; }
 <a aria-label="Marjory Say-Ao home" class="footer-logo" href="#hero">
 <img alt="Marjory Say-Ao logo" decoding="async" height="110" loading="lazy" src="/assets/images/logo.png" width="190"/>
 </a>
+<div class="footer-social-links" aria-label="Social media links">
+<a class="social-link" href="https://www.facebook.com/thisismarj.thone" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.8l.42-3.27H13.5V8.64c0-.95.26-1.6 1.63-1.6H16.9V4.12a23.7 23.7 0 0 0-2.53-.13c-2.5 0-4.21 1.52-4.21 4.32v2.42H7.33V14h2.83v8h3.34Z"/></svg>
+</a>
+<a class="social-link" href="https://www.instagram.com/_m_ttyyy?igsh=MWhjeG50Y3FkaWdwbg%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6a5.2 5.2 0 0 1-5.2 5.2H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm-.18 2A3.02 3.02 0 0 0 4 7.02v9.96A3.02 3.02 0 0 0 7.02 20h9.96A3.02 3.02 0 0 0 20 16.98V7.02A3.02 3.02 0 0 0 16.98 4H7.02ZM17.3 5.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+</a>
+<a class="social-link" href="https://wa.me/639501338976" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.84 9.84 0 0 0-8.45 14.88L2.12 22l5.25-1.38A9.98 9.98 0 0 0 12.04 22 9.96 9.96 0 0 0 22 12.04 9.96 9.96 0 0 0 12.04 2Zm0 18.18a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.15 8.15 0 1 1 6.97 3.86Zm4.47-6.1c-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.39-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>
+</a>
+<a class="social-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.34 3.5A1.84 1.84 0 1 1 5.33 7.2a1.84 1.84 0 0 1 .01-3.69ZM3.76 8.6h3.16V19.5H3.76V8.6Zm5.15 0h3.03v1.49h.04c.42-.8 1.45-1.65 2.99-1.65 3.2 0 3.79 2.1 3.79 4.84v6.22H15.6v-5.52c0-1.32-.02-3.01-1.84-3.01-1.84 0-2.12 1.44-2.12 2.92v5.61H8.91V8.6Z"/></svg>
+</a>
+</div>
 <div class="footer-copyright">© 2026 Marjory Say-Ao</div>
 </div>
 </footer>
