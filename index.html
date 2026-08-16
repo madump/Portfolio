@@ -979,12 +979,74 @@ form .btn { width: fit-content; }
 .portfolio-featured img { display: block; width: 100%; max-height: 620px; object-fit: contain; }
 .portfolio-featured iframe { display: block; width: 100%; min-height: 390px; aspect-ratio: 16 / 9; border: 0; background: #000; }
 .portfolio-featured.is-clickable { cursor: pointer; }
-.portfolio-gallery-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 11px; }
-.portfolio-gallery-item { position: relative; padding: 0; aspect-ratio: 16/10; overflow: hidden; border: 1px solid rgba(255,255,255,.09); border-radius: 15px; background: #202035; cursor: pointer; }
+/* Portfolio thumbnail carousel below the featured preview */
+.portfolio-gallery-carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 12px;
+}
+.portfolio-gallery-grid {
+  display: flex;
+  gap: 11px;
+  min-width: 0;
+  padding: 4px 2px 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.portfolio-gallery-grid::-webkit-scrollbar { display: none; }
+.portfolio-gallery-item {
+  position: relative;
+  flex: 0 0 clamp(150px, 17vw, 210px);
+  padding: 0;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 15px;
+  background: #202035;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease, opacity .2s ease;
+}
 .portfolio-gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .2s ease; }
+.portfolio-gallery-item:hover { transform: translateY(-2px); }
 .portfolio-gallery-item:hover,
-.portfolio-gallery-item.is-active { border-color: rgba(170,166,255,.55); box-shadow: inset 0 -3px 0 var(--lavender); }
+.portfolio-gallery-item.is-active {
+  border-color: rgba(170,166,255,.72);
+  box-shadow: inset 0 -3px 0 var(--lavender), 0 10px 24px rgba(0,0,0,.18);
+}
+.portfolio-gallery-item.is-active { opacity: 1; }
 .portfolio-gallery-item:hover img { transform: scale(1.025); }
+.portfolio-gallery-arrow {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+  background: rgba(255,255,255,.07);
+  color: #fff;
+  font-size: 27px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease, opacity .2s ease;
+}
+.portfolio-gallery-arrow:hover:not(:disabled) {
+  transform: scale(1.05);
+  border-color: rgba(170,166,255,.46);
+  background: var(--purple);
+}
+.portfolio-gallery-arrow:disabled {
+  opacity: .28;
+  cursor: default;
+}
 .portfolio-gallery-item.is-video { color: #fff; text-align: left; }
 .portfolio-gallery-item.is-video::before { content: ""; position: absolute; z-index: 3; left: 50%; top: 50%; width: 46px; height: 46px; border-radius: 50%; background: var(--purple); transform: translate(-50%,-50%); box-shadow: 0 10px 26px rgba(0,0,0,.28); pointer-events: none; }
 .portfolio-gallery-item.is-video::after { content: ""; position: absolute; z-index: 2; inset: 0; background: linear-gradient(180deg, transparent 54%, rgba(0,0,0,.72)); pointer-events: none; }
@@ -994,6 +1056,20 @@ form .btn { width: fit-content; }
 .portfolio-modal-footer { display: none; padding: 0 22px 22px; }
 .portfolio-modal.is-compact-gallery .portfolio-modal-footer { display: flex; justify-content: center; }
 .portfolio-more-button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 20px; border: 1px solid var(--purple); border-radius: 999px; background: var(--purple); color: #fff; font-size: 12px; font-weight: 700; }
+
+
+@media (max-width: 760px) {
+  .portfolio-gallery-carousel { grid-template-columns: 38px minmax(0, 1fr) 38px; gap: 8px; }
+  .portfolio-gallery-arrow { width: 38px; height: 38px; font-size: 23px; }
+  .portfolio-gallery-item { flex-basis: min(48vw, 180px); border-radius: 12px; }
+}
+
+@media (max-width: 480px) {
+  .portfolio-modal-body { padding-inline: 14px; }
+  .portfolio-gallery-carousel { grid-template-columns: 34px minmax(0, 1fr) 34px; gap: 6px; }
+  .portfolio-gallery-arrow { width: 34px; height: 34px; font-size: 21px; }
+  .portfolio-gallery-item { flex-basis: min(56vw, 170px); }
+}
 
 .fade-up { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
 .fade-up.visible { opacity: 1; transform: none; }
@@ -4054,7 +4130,11 @@ form .btn { width: fit-content; }
 </div>
 <div class="portfolio-modal-body">
 <div aria-live="polite" class="portfolio-featured" id="portfolio-featured"></div>
-<div aria-label="Project gallery items" class="portfolio-gallery-grid" id="portfolio-gallery-grid"></div>
+<div aria-label="Project thumbnail carousel" class="portfolio-gallery-carousel">
+<button aria-label="Previous thumbnails" class="portfolio-gallery-arrow portfolio-gallery-prev" type="button">‹</button>
+<div aria-label="Project gallery items" class="portfolio-gallery-grid" id="portfolio-gallery-grid" tabindex="0"></div>
+<button aria-label="Next thumbnails" class="portfolio-gallery-arrow portfolio-gallery-next" type="button">›</button>
+</div>
 </div>
 <div class="portfolio-modal-footer">
 <a class="portfolio-more-button" href="https://drive.google.com/drive/folders/1URKdg_A2IcgbBQPLKRc8SykblzDeNm46?usp=drive_link" rel="noopener noreferrer" target="_blank">View More GHL Automation <span aria-hidden="true">↗</span></a>
@@ -4219,9 +4299,45 @@ form .btn { width: fit-content; }
     const portfolioModalTitle = document.getElementById('portfolio-modal-title');
     const portfolioFeatured = document.getElementById('portfolio-featured');
     const portfolioGalleryGrid = document.getElementById('portfolio-gallery-grid');
+    const portfolioThumbPrev = portfolioModal ? portfolioModal.querySelector('.portfolio-gallery-prev') : null;
+    const portfolioThumbNext = portfolioModal ? portfolioModal.querySelector('.portfolio-gallery-next') : null;
     const portfolioCloseButton = portfolioModal ? portfolioModal.querySelector('.portfolio-modal-close') : null;
     const portfolioMoreButton = portfolioModal ? portfolioModal.querySelector('.portfolio-more-button') : null;
     let lastGalleryTrigger = null;
+
+    function updatePortfolioThumbNav() {
+      if (!portfolioGalleryGrid) return;
+      const maxScroll = Math.max(0, portfolioGalleryGrid.scrollWidth - portfolioGalleryGrid.clientWidth);
+      if (portfolioThumbPrev) portfolioThumbPrev.disabled = portfolioGalleryGrid.scrollLeft <= 2;
+      if (portfolioThumbNext) portfolioThumbNext.disabled = portfolioGalleryGrid.scrollLeft >= maxScroll - 2;
+    }
+
+    function scrollPortfolioThumbs(direction) {
+      if (!portfolioGalleryGrid) return;
+      const firstCard = portfolioGalleryGrid.querySelector('.portfolio-gallery-item');
+      const styles = getComputedStyle(portfolioGalleryGrid);
+      const gap = parseFloat(styles.columnGap || styles.gap) || 11;
+      const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 190;
+      const visibleCards = Math.max(1, Math.floor(portfolioGalleryGrid.clientWidth / (cardWidth + gap)));
+      const amount = (cardWidth + gap) * Math.max(1, visibleCards - 1);
+      portfolioGalleryGrid.scrollBy({ left: direction * amount, behavior: 'smooth' });
+    }
+
+    if (portfolioThumbPrev) portfolioThumbPrev.addEventListener('click', function(){ scrollPortfolioThumbs(-1); });
+    if (portfolioThumbNext) portfolioThumbNext.addEventListener('click', function(){ scrollPortfolioThumbs(1); });
+    if (portfolioGalleryGrid) {
+      portfolioGalleryGrid.addEventListener('scroll', updatePortfolioThumbNav, { passive: true });
+      portfolioGalleryGrid.addEventListener('keydown', function(event){
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          scrollPortfolioThumbs(-1);
+        } else if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          scrollPortfolioThumbs(1);
+        }
+      });
+    }
+    window.addEventListener('resize', updatePortfolioThumbNav);
 
     function makeGalleryPlaceholder(title, number) {
       const safeTitle = String(title).replace(/[&<>\"']/g, function(char){
@@ -4483,6 +4599,8 @@ form .btn { width: fit-content; }
       showFeaturedMedia(item);
       portfolioGalleryGrid.querySelectorAll('.portfolio-gallery-item').forEach(galleryItem => galleryItem.classList.remove('is-active'));
       button.classList.add('is-active');
+      button.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      window.setTimeout(updatePortfolioThumbNav, 260);
     }
 
     function openPortfolioGallery(key, trigger) {
@@ -4574,6 +4692,8 @@ form .btn { width: fit-content; }
         portfolioGalleryGrid.appendChild(button);
       });
 
+      portfolioGalleryGrid.scrollLeft = 0;
+      requestAnimationFrame(updatePortfolioThumbNav);
       showFeaturedMedia(featuredItem);
       portfolioModal.classList.add('is-open');
       portfolioModal.setAttribute('aria-hidden', 'false');
